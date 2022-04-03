@@ -10,7 +10,7 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 - Input player name
 - Read instructions from a pop-up window
 - Use keyboard arrows to crawl around the map
-- Collect litter & exchange it for cash at the Dump.
+- Collect litter & exchange it for cash at the Dump
 - There 5 litter types, each unique in value:
     - $1 = soda can
     - $2 = pizza box
@@ -34,9 +34,9 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 
 ## Implementation Timeline
 
-**Friday Afternoon & Weekend:** get game rendered on screen with a moveable player & objects
+**Friday Afternoon & Weekend:** Setup basic file structure & initial setup. Create classes for Bug, Litter & Dump. Render bug & litter.
 
-**Monday:** Create classes for Bug, Litter & Dump. Render bug & litter, using collision detection to allow user to pick up litter. Create pop-up window with game instructions.
+**Monday:** Setup collision detection to allow bug to pick up litter & deposit in dump. Create pop-up window with game instructions. Get game rendered on screen with a moveable player & objects.
 
 **Tuesday:** Create windows for countdown clock, cash total, current litter and deposits counter.
 
@@ -64,6 +64,5 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 - [ ] render countdown clock
 - [ ] collision registers to remove litter from screen & add to current litter
 - [ ] collision with dump adds cash & respawns dump
-- [ ] 
 - [ ] 
 - [ ] 
