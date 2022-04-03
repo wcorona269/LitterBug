@@ -61,8 +61,9 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 - [ ] setup basic project folder and skeleton
 - [ ] render player dot on screen
 - [ ] render randomly generated litter
-- [ ] render countdown clock
 - [ ] collision registers to remove litter from screen & add to current litter
 - [ ] collision with dump adds cash & respawns dump
-- [ ] 
-- [ ] 
+- [ ] render countdown clock
+- [ ] render cash counter
+- [ ] render deposit counter
+- [ ] render deposit counter
