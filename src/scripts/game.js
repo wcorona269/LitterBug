@@ -5,8 +5,9 @@ import Dump from "./dump";
 const LITTERCOUNT = 15;
 
 class Game {
-
     constructor() {
+        this.tummy = [];
+        this.litters = [];
         this.bug = new Bug(this);
         this.addLitter();
         this.addDump();
@@ -20,7 +21,21 @@ class Game {
         }
     }
 
+    addNewLitter() {
+        while (this.litters.length < LITTERCOUNT) {
+            let newLitter = new Litter(this.randomPos());
+            this.litters.push(newLitter);
+        }
+    }
+
+    addDump();
+
+
     randomPos() {
-        let x = Math.floor(Math.random() * )
+    }
+
+    remove (obj) {
     }
 }
+
+export default Game;

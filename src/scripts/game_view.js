@@ -7,25 +7,19 @@ class GameView {
         this.bug = this.game.bug;
     }
 
-    
-
-    keydown(e){
-        switch(e.key){
-            case 'w':
-                this.player.travel([0, -3]);
-                break;
+    addEventListener('keydown', (key) => {
+        switch (key) {
             case 'a':
-                this.player.travel([-3, 0]);
-                break;
-            case 's':
-                this.player.travel([0, 3]);
-                break;
+                console.log('left');
             case 'd':
-                this.player.travel([3, 0]);
-                break;
+                console.log('right');
+            case 'w':
+                console.log('up');
+            case 's':
+                console.log('down');
         }
-    }
-}
+    };
+};
 
 
-
+export default GameView;
