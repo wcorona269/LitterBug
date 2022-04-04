@@ -1,0 +1,37 @@
+{
+  "name": "litterbug",
+  "version": "1.0.0",
+  "description": "***LitterBug*** is a 2D game where you are a trash-collecting bug, picking up up litter which appears randomly on the map. A Bug can carry up to 3 pieces of litter at a time and exchange the litter for cash at the Dump (placed in a corner of the map & respawning each time you visit). Some trash will reward more money than others (i.e. a soda can is $1 but a broken-down car is $5), but more rewarding trash will also slow you down (so you may not make it to the dump in time). The objective is to make as much cash as possible before time runs out!",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "core-js": "^3.21.1",
+    "css-loader": "^6.7.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-fetch": "^3.2.3",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.49.11",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wcorona269/LitterBug.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wcorona269/LitterBug/issues"
+  },
+  "homepage": "https://github.com/wcorona269/LitterBug#readme"
+}
