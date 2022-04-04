@@ -1,4 +1,3 @@
-import { start } from "repl";
 import Game from "./game";
 
 class GameView {
@@ -8,24 +7,32 @@ class GameView {
         this.bug = this.game.bug;
     }
 
+    render() {
+        this.game.draw(this.ctx);
+    };
 
-    keydown(e) {
-        switch (e.key) {
-            case 'a':
-                console.log('left');
-            case 'd':
-                console.log('right');
-            case 'w':
-                console.log('up');
-            case 's':
-                console.log('down');
-        }
-    }
+
+
+    // keydown(e) {
+    //     switch (e.key) {
+    //         case 'a':
+    //             console.log('left');
+    //         case 'd':
+    //             console.log('right');
+    //         case 'w':
+    //             console.log('up');
+    //         case 's':
+    //             console.log('down');
+    //     }
+    // }
 
     // start() {
 
     // }
 }
+
+
+
 
 
 export default GameView;

@@ -1,5 +1,4 @@
-const DIM_X = 1000;
-const DIM_Y = 750;
+
 
 class MovingObject {
     constructor(pos, vel, radius, color, game){
@@ -9,7 +8,7 @@ class MovingObject {
         this.color = color;
         this.game = game;
     }
-
+    
     draw(ctx){
         ctx.beginPath();
         ctx.arc(

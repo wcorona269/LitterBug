@@ -1,7 +1,7 @@
 import MovingObject from "./moving_object";
 
 // CORNERS = four position options for each screen corner
-RADIUS = 10;
+const RADIUS = 10;
 
 class Dump extends MovingObject{
     constructor(game) {

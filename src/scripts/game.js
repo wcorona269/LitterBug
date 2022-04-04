@@ -9,16 +9,20 @@ const DIM_Y = 750;
 
 class Game {
     constructor() {
+        this.bug = new Bug(this);
         this.belly = [];
         this.litters = [];
-        this.bug = new Bug(this);
-        this.addLitter();
-        this.addDump();
+        this.currentLitter = [];
         this.score = 0;
+        this.dumpVisits = 0;
+        // this.addLitter();
+        // this.addDump();
     }
 
     allobjects() {
         let arr = [this.bug];
+        return arr;
+
         // later will be: let arr = this.litters.concat([this.bug], this.belly)
     }
 
@@ -31,8 +35,8 @@ class Game {
             el.draw(ctx);
         });
 
-        // ctx.font = "20px Helvetica";
-        // ctx.fillStyle = GAMECOLOR;
+        ctx.font = "20px Helvetica";
+        ctx.fillStyle = GAMECOLOR;
     };
 
     // addLitter() {
