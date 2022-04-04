@@ -3,10 +3,13 @@ import Litter from "./litter";
 import Dump from "./dump";
 
 const LITTERCOUNT = 15;
+const GAMECOLOR = "lightgreen"
+const DIM_X = 1000;
+const DIM_Y = 750;
 
 class Game {
     constructor() {
-        this.tummy = [];
+        this.belly = [];
         this.litters = [];
         this.bug = new Bug(this);
         this.addLitter();
@@ -14,28 +17,46 @@ class Game {
         this.score = 0;
     }
 
-    addLitter() {
-        for (let i = 0; i < LITTERCOUNT; i++) {
-            let litter = new Litter(this.randomPos(), this);
-            this.litters.push(litter);
-        }
+    allobjects() {
+        let arr = [this.bug];
+        // later will be: let arr = this.litters.concat([this.bug], this.belly)
     }
 
-    addNewLitter() {
-        while (this.litters.length < LITTERCOUNT) {
-            let newLitter = new Litter(this.randomPos());
-            this.litters.push(newLitter);
-        }
-    }
+    draw(ctx) {
+        ctx.clearRect(0, 0, DIM_X, DIM_Y);
+        ctx.fillStyle = GAMECOLOR;
+        ctx.fillRect(0, 0, DIM_X, DIM_Y);
 
-    addDump();
+        this.allobjects().forEach(el => {
+            el.draw(ctx);
+        });
 
+        // ctx.font = "20px Helvetica";
+        // ctx.fillStyle = GAMECOLOR;
+    };
 
-    randomPos() {
-    }
+    // addLitter() {
+    //     for (let i = 0; i < LITTERCOUNT; i++) {
+    //         let litter = new Litter(this.randomPos(), this);
+    //         this.litters.push(litter);
+    //     }
+    // }
 
-    remove (obj) {
-    }
+    // addNewLitter() {
+    //     while (this.litters.length < LITTERCOUNT) {
+    //         let newLitter = new Litter(this.randomPos());
+    //         this.litters.push(newLitter);
+    //     }
+    // }
+
+    // addDump();
+
+    // randomPos() {
+
+    // }
+
+    // remove (obj) {
+    // }
 }
 
 export default Game;

@@ -1,3 +1,4 @@
+import { start } from "repl";
 import Game from "./game";
 
 class GameView {
@@ -7,8 +8,9 @@ class GameView {
         this.bug = this.game.bug;
     }
 
-    addEventListener('keydown', (key) => {
-        switch (key) {
+
+    keydown(e) {
+        switch (e.key) {
             case 'a':
                 console.log('left');
             case 'd':
@@ -18,8 +20,12 @@ class GameView {
             case 's':
                 console.log('down');
         }
-    };
-};
+    }
+
+    // start() {
+
+    // }
+}
 
 
 export default GameView;

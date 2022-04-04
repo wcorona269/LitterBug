@@ -58,7 +58,7 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 
 ### task list
 
-- [ ] setup basic project folder and skeleton
+- [x] setup basic project folder and skeleton
 - [ ] render player dot on screen
 - [ ] render randomly generated litter
 - [ ] collision registers to remove litter from screen & add to current litter
