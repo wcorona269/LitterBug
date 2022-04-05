@@ -1,7 +1,7 @@
 import MovingObject from "./moving_object";
 import Util from "./util"
 
-const RADIUS = 10;
+const RADIUS = 13;
 const COLOR = 'black';
 // const SPEEDS = [20, 15, 10, 5];
 const MAXSPEED = 6;
@@ -21,10 +21,6 @@ class Bug extends MovingObject {
             this.vel[1] += velocity[1];
         }
     }
-
-    isCollidedWith(otherObject) {
-        const centerDist = Util.dist(this.pos, otherObject.pos);
-        return centerDist < (this.radius + otherObject.radius);
-      };
 }
+
 export default Bug;

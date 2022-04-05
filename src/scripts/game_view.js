@@ -23,11 +23,11 @@ class GameView {
     keydown(event){
         switch(event.key){
             case 'w':
-                if (this.bug.pos[1] > 40)
+                if (this.bug.pos[1] > 50)
                 {this.bug.travel([0, -3])};
                 break;
             case 'a':
-                if (this.bug.pos[0] > 40)    
+                if (this.bug.pos[0] > 50)    
                 this.bug.travel([-3, 0]);
                 break;
             case 's':
@@ -35,7 +35,7 @@ class GameView {
                 this.bug.travel([0, 3]);
                 break;
             case 'd':
-                if (this.bug.pos[0] < 975)
+                if (this.bug.pos[0] < 950)
                 this.bug.travel([3, 0]);
                 break;
           
