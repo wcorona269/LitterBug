@@ -4,7 +4,7 @@ import Util from "./util"
 const RADIUS = 13;
 const COLOR = 'black';
 // const SPEEDS = [20, 15, 10, 5];
-const MAXSPEED = 6;
+const MAXSPEED = 10;
 
 class Bug extends MovingObject {
     constructor(game) {

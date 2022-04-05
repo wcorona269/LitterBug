@@ -74,14 +74,37 @@ class Game {
         return DUMPSPOTS[Math.floor(Math.random()*DUMPSPOTS.length)];
     }
 
+    generateDump() {
+        return new Dump(this.randCorner(), this)
+    }
+
+
+    ensureNewPos() {
+        let newDump = this.generateDump();
+        let currDump = this.dumps[0];
+        let curr_x = currDump.pos[0];
+        let curr_y = currDump.pos[1];
+        let new_x = newDump.pos[0];
+        let new_y = newDump.pos[1];
+        while (curr_x === new_x && curr_y === new_y){
+            // console.log("in the while loop");
+            // console.log(curr_x === new_x);
+            // console.log(curr_y === new_y);
+            newDump = this.generateDump();
+            new_x = newDump.pos[0];
+            new_y = newDump.pos[1];
+        }
+
+        return newDump;
+    }
+
     addDump() {
-        let newDump = new Dump(this.randCorner(), this);
         if (!this.dumps.length) {
+            var newDump = this.generateDump();
             this.dumps.push(newDump);
         }
         else {
-            let lastPos = this.dumps[0].pos; 
-            let newPos = newDump.pos;
+            let newDump = this.ensureNewPos();
             this.dumps = [];
             this.dumps.push(newDump);
         };
@@ -97,7 +120,6 @@ class Game {
             else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
                 this.dumpLitter();
                 this.addNewLitter();
-                this.addDump();
             }
         });
     }
@@ -107,6 +129,7 @@ class Game {
             var lit = this.belly[0];
             this.score += lit.value;
             this.belly.shift();
+            this.addDump();
         }
         // for (let i = 0; i < this.belly.length; i++) {
         //     this.score += this.belly[i].value;
