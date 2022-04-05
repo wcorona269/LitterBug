@@ -1,5 +1,8 @@
 import Game from "./game";
 
+const DIM_X = 1000;
+const DIM_Y = 750;
+
 class GameView {
     constructor(ctx) {
         this.game = new Game();
@@ -7,7 +10,7 @@ class GameView {
         this.bug = this.game.bug;
     }
 
-    
+
     start(){
         this.bindKeyHandlers();
         requestAnimationFrame(this.render.bind(this));
@@ -20,17 +23,22 @@ class GameView {
     keydown(event){
         switch(event.key){
             case 'w':
-                this.bug.travel([0, -3]);
+                if (this.bug.pos[1] > 40)
+                {this.bug.travel([0, -3])};
                 break;
-                case 'a':
+            case 'a':
+                if (this.bug.pos[0] > 40)    
                 this.bug.travel([-3, 0]);
                 break;
-                case 's':
+            case 's':
+                if (this.bug.pos[1] < 700)    
                 this.bug.travel([0, 3]);
                 break;
-                case 'd':
+            case 'd':
+                if (this.bug.pos[0] < 975)
                 this.bug.travel([3, 0]);
                 break;
+          
         }
     }
 

@@ -1,5 +1,8 @@
 import Util from "./util"
 
+const DIM_X = 1000;
+const DIM_y = 750;
+
 class MovingObject {
     constructor(pos, vel, radius, color, game){
         this.pos = pos;
@@ -29,6 +32,11 @@ class MovingObject {
     isCollidedWith(otherObject) {
         const centerDist = Util.dist(this.pos, otherObject.pos);
         return centerDist < (this.radius + otherObject.radius);
+    };
+
+    isOutOfBounds(pos) {
+        return (pos[0] < 0) || (pos[1] < 0) ||
+          (pos[0] > Game.DIM_X) || (pos[1] > Game.DIM_Y);
     };
 
     
