@@ -19,7 +19,7 @@ class MovingObject {
         ctx.fill();
         ctx.stroke();
     }
-    
+
     move(){
         let x = this.pos[0] + this.vel[0]
         let y = this.pos[1] + this.vel[1];
@@ -34,7 +34,7 @@ class MovingObject {
     }
 
     isCollidedWith(otherObject) {
-        debugger;
+        // debugger;
         const centerDist = this.dist(this.pos, otherObject.pos);
         return centerDist < (this.radius + otherObject.radius);
     };

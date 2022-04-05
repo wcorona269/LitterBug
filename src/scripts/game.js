@@ -76,12 +76,12 @@ class Game {
 
     addDump() {
         let newDump = new Dump(this.randCorner(), this);
-        debugger;
         if (!this.dumps.length) {
             this.dumps.push(newDump);
         }
         else {
             let lastPos = this.dumps[0].pos; 
+            let newPos = newDump.pos;
             this.dumps = [];
             this.dumps.push(newDump);
         };
@@ -103,10 +103,15 @@ class Game {
     }
 
     dumpLitter() {
-        this.belly.forEach(lit => {
+        while (this.belly.length) {
+            var lit = this.belly[0];
             this.score += lit.value;
-            this.belly.splice(this.belly.indexOf(lit), 1);
-        })
+            this.belly.shift();
+        }
+        // for (let i = 0; i < this.belly.length; i++) {
+        //     this.score += this.belly[i].value;
+        //     this.belly.splice(this.belly.indexOf(this.belly[i]), 1);
+        // };
     }
 
     remove (obj) {
