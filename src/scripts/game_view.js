@@ -7,32 +7,39 @@ class GameView {
         this.bug = this.game.bug;
     }
 
+    
+    start(){
+        this.bindKeyHandlers();
+        requestAnimationFrame(this.render.bind(this));
+    }
+    
+    bindKeyHandlers(){
+        document.addEventListener("keydown", this.keydown.bind(this), false);
+    }
+
+    keydown(event){
+        switch(event.key){
+            case 'w':
+                this.bug.travel([0, -5]);
+                break;
+                case 'a':
+                this.bug.travel([-5, 0]);
+                break;
+                case 's':
+                this.bug.travel([0, 5]);
+                break;
+                case 'd':
+                this.bug.travel([5, 0]);
+                break;
+        }
+    }
+
     render() {
+        this.game.step();
         this.game.draw(this.ctx);
+        requestAnimationFrame(this.render.bind(this));
     };
-
-
-
-    // keydown(e) {
-    //     switch (e.key) {
-    //         case 'a':
-    //             console.log('left');
-    //         case 'd':
-    //             console.log('right');
-    //         case 'w':
-    //             console.log('up');
-    //         case 's':
-    //             console.log('down');
-    //     }
-    // }
-
-    // start() {
-
-    // }
 }
-
-
-
 
 
 export default GameView;

@@ -4,6 +4,7 @@ import Dump from "./dump";
 
 const LITTERCOUNT = 15;
 const GAMECOLOR = "lightgreen"
+const DECELERATION = 0.95;
 const DIM_X = 1000;
 const DIM_Y = 750;
 
@@ -15,6 +16,7 @@ class Game {
         this.currentLitter = [];
         this.score = 0;
         this.dumpVisits = 0;
+        this.gameOver = false;
         // this.addLitter();
         // this.addDump();
     }
@@ -39,6 +41,10 @@ class Game {
         ctx.fillStyle = GAMECOLOR;
     };
 
+    step() {
+        this.move();
+    }
+
     // addLitter() {
     //     for (let i = 0; i < LITTERCOUNT; i++) {
     //         let litter = new Litter(this.randomPos(), this);
@@ -61,6 +67,12 @@ class Game {
 
     // remove (obj) {
     // }
+
+    move(){
+        this.allObjects().forEach(obj => {
+            obj.move();
+        })
+    }
 }
 
 export default Game;

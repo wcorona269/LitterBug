@@ -12,9 +12,9 @@ class Litter extends MovingObject {
 
 
 
-    addLitter() {
-        // for (let i = 0; i < )
-    }
+    // addLitter() {
+    //     for (let i = 0; i < )
+    // }
 }
 
 export default Litter;

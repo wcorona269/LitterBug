@@ -6,10 +6,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     canvasEl.width = 1000;
     canvasEl.height = 750;
-    ctx.fillStyle = "darkgreen";
+    ctx.fillStyle = "lightgreen";
     ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
 
     const gameView = new GameView(ctx);
-    gameView.render();
+    gameView.start();
 });
 
