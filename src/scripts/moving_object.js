@@ -1,5 +1,3 @@
-import Util from "./util"
-
 const DIM_X = 1000;
 const DIM_y = 750;
 
@@ -21,7 +19,7 @@ class MovingObject {
         ctx.fill();
         ctx.stroke();
     }
-
+    
     move(){
         let x = this.pos[0] + this.vel[0]
         let y = this.pos[1] + this.vel[1];
@@ -29,8 +27,15 @@ class MovingObject {
         this.pos = [x, y]
     }
 
+    dist(pos1, pos2) {
+        return Math.sqrt(
+          Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2)
+        );
+    }
+
     isCollidedWith(otherObject) {
-        const centerDist = Util.dist(this.pos, otherObject.pos);
+        debugger;
+        const centerDist = this.dist(this.pos, otherObject.pos);
         return centerDist < (this.radius + otherObject.radius);
     };
 
@@ -38,8 +43,6 @@ class MovingObject {
         return (pos[0] < 0) || (pos[1] < 0) ||
           (pos[0] > Game.DIM_X) || (pos[1] > Game.DIM_Y);
     };
-
-    
 }
 
 export default MovingObject;

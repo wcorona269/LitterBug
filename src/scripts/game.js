@@ -45,7 +45,8 @@ class Game {
 
     step() {
         this.move();
-        this.addLitter();
+        this.checkCollisions();
+        // this.addNewLitter();
     }
 
     randomPos() {
@@ -58,7 +59,7 @@ class Game {
     addLitter() {
         for (let i = 0; i < LITTERCOUNT; i++) {
             let litter = new Litter(this.randomPos(), this);
-            if (this.litters.length < LITTERCOUNT) this.litters.push(litter);
+            this.litters.push(litter);
         }
     }
 
@@ -78,24 +79,41 @@ class Game {
         debugger;
         if (!this.dumps.length) {
             this.dumps.push(newDump);
-        } else if (newDump.pos !== lastPos) {
-            this.dumps.shift();
+        }
+        else {
+            let lastPos = this.dumps[0].pos; 
+            this.dumps = [];
             this.dumps.push(newDump);
-        } else {
-            this.addDump();
-        }
+        };
     }
 
-    checkCollision(obj) {
-        if (this.bug.isCollidedWith(obj) && obj instanceof Litter) {
-            this.belly.push(obj);
-            remove(obj);
-        }
+    checkCollisions(obj) {
+        const allObjects = this.allObjects();
+        allObjects.forEach(obj => {
+            if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
+                this.belly.push(obj);
+                this.remove(obj);
+            } 
+            else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
+                this.dumpLitter();
+                this.addNewLitter();
+                this.addDump();
+            }
+        });
     }
 
+    dumpLitter() {
+        this.belly.forEach(lit => {
+            this.score += lit.value;
+            this.belly.splice(this.belly.indexOf(lit), 1);
+        })
+    }
 
-    // remove (obj) {
-    // }
+    remove (obj) {
+        if (obj instanceof Litter) {
+            this.litters.splice(this.litters.indexOf(obj), 1);
+        }
+    }
 
     move(){
         this.allObjects().forEach(obj => {

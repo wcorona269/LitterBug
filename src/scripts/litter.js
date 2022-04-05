@@ -9,6 +9,7 @@ const LITTER_TYPES = ['can', 'gum', 'pizzacrust', 'bottlecap', 'receipt', 'paper
 class Litter extends MovingObject {
     constructor(pos, game) {
         super(pos, [0,0], RADIUS, COLOR, game)
+        this.value = 5;
     }
 }
 
