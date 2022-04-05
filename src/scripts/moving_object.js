@@ -1,4 +1,4 @@
-
+import Util from "./util"
 
 class MovingObject {
     constructor(pos, vel, radius, color, game){
@@ -8,7 +8,7 @@ class MovingObject {
         this.color = color;
         this.game = game;
     }
-    
+
     draw(ctx){
         ctx.beginPath();
         ctx.arc(
@@ -25,6 +25,13 @@ class MovingObject {
 
         this.pos = [x, y]
     }
+
+    isCollidedWith(otherObject) {
+        const centerDist = Util.dist(this.pos, otherObject.pos);
+        return centerDist < (this.radius + otherObject.radius);
+    };
+
+    
 }
 
 export default MovingObject;

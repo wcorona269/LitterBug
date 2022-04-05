@@ -2,7 +2,7 @@ import MovingObject from "./moving_object";
 
 const RADIUS = 10;
 const COLOR = 'red';
-const LITTER_TYPES = ['can', 'box', 'tv', 'couch', 'car']
+const LITTER_TYPES = ['can', 'gum', 'pizzacrust', 'bottlecap', 'receipt', 'paperclip', 'box', 'car', 'cigarette butt', 'applecore']
 
 
 class Litter extends MovingObject {

@@ -4,7 +4,7 @@ import Dump from "./dump";
 
 const LITTERCOUNT = 15;
 const GAMECOLOR = "lightgreen"
-const DECELERATION = 0.95;
+const DECELERATOR = 0.9;
 const DIM_X = 1000;
 const DIM_Y = 750;
 
@@ -21,7 +21,7 @@ class Game {
         // this.addDump();
     }
 
-    allobjects() {
+    allObjects() {
         let arr = [this.bug];
         return arr;
 
@@ -33,7 +33,7 @@ class Game {
         ctx.fillStyle = GAMECOLOR;
         ctx.fillRect(0, 0, DIM_X, DIM_Y);
 
-        this.allobjects().forEach(el => {
+        this.allObjects().forEach(el => {
             el.draw(ctx);
         });
 
@@ -69,8 +69,13 @@ class Game {
     // }
 
     move(){
+        debugger;
         this.allObjects().forEach(obj => {
             obj.move();
+            if (obj instanceof Bug) {
+                obj.vel[0] *= DECELERATOR;
+                obj.vel[1] *= DECELERATOR;
+            }
         })
     }
 }

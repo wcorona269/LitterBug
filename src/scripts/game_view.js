@@ -20,16 +20,16 @@ class GameView {
     keydown(event){
         switch(event.key){
             case 'w':
-                this.bug.travel([0, -5]);
+                this.bug.travel([0, -3]);
                 break;
                 case 'a':
-                this.bug.travel([-5, 0]);
+                this.bug.travel([-3, 0]);
                 break;
                 case 's':
-                this.bug.travel([0, 5]);
+                this.bug.travel([0, 3]);
                 break;
                 case 'd':
-                this.bug.travel([5, 0]);
+                this.bug.travel([3, 0]);
                 break;
         }
     }
