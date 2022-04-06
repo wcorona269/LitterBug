@@ -1,8 +1,15 @@
+import moduleTransformations from "@babel/preset-env/lib/module-transformations";
 import GameView from "./scripts/game_view"
 
 
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
+    const loadModal = document.querySelector("#loadModal");
+    loadModal.showModal();
+})
+
+
+document.addEventListener("submit", () => {
     const nameEl = document.querySelector('#nameEl')
     const timerEl = document.querySelector('#timerEl');
     const scoreEl = document.querySelector('#scoreEl');

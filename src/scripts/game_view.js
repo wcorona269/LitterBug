@@ -21,6 +21,7 @@ class GameView {
     }
 
     keydown(event){
+        if (this.game.over) return;
         switch(event.key){
             case 'w':
                 if (this.bug.pos[1] > 50)

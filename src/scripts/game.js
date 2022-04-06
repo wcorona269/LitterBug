@@ -20,10 +20,11 @@ class Game {
         this.currentLitter = [];
         this.score = 0;
         this.dumpVisits = 0;
-        this.gameOver = false;
+        this.over = false;
         this.addLitter();
         this.addDump();
         this.startCountdown(60);
+        this.endGame();
     }
 
     getName() {
@@ -37,7 +38,8 @@ class Game {
 
     endGame() {
         if (timerEl.innerHTML === 0) {
-        alert(`Game Over!\nYour score is: ${scoreEl}`);
+            this.over = true;
+            alert(`Game Over!\nYour score is: ${scoreEl}`);
         }
     }
 

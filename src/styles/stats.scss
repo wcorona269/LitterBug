@@ -1,0 +1,26 @@
+.p-container {
+    display: inline-block;
+    margin-bottom: 1;
+    padding-bottom: 1%;
+    top: 10%;
+    display: flex;
+    gap: .5rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+div > p {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 5px;
+    padding-right: 20px;
+    border: 5px solid #2C4E72;
+}
+
+span {
+    padding: 1px;
+}

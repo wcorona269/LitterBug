@@ -1,0 +1,12 @@
+
+.game-container {
+    background-image: url("https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png");
+}
+
+canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    border: 10px solid #2C4E72             
+}

@@ -7,14 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css"/>
-    <!-- <SCRIPT TYPE="text/javascript">
-    function popup(mylink, windowname) {
-        if (! window.focus) return true;
-        var href;
-        if (typeof(mylink) == 'string') href=mylink; else href=mylink.href; 
-        
-        window.open(href, windowname, 'width=400,height=200,scrollbars=yes'); return false; } </SCRIPT> -->
-
     <script src="./main.js"></script>
     <title>LitterBug</title>
 </head>
@@ -26,17 +18,27 @@
     }
 
 </style>
-
 <body>
    
-    <h1>Let's play LitterBug!</h1>
-        <div class="p-container">
-
+    <h1 id="game-header">LitterBug</h1>
+    <dialog class="loadModal" id="loadModal">
+        <h1 id="popup-header">Let's Play Litterbug!</h1>
+        <p id="game-description"> WOAH!!
+            Where did all this litter come from? Keep the park clean by picking up litter & exchanging it for cash at the dump! Let's see how much cash you can make before time runs out... Good luck! </p>
+        <form class="name-form" method="dialog">
+            <label class="name-label">Player Name:</label>
+            <input value="game_enjoyer" class="name-input" type="text">
+            <div class="button-holder">
+                 <button id="start-button" class="start-button">START GAME</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="p-container">
             <p id = 'timer'>
                 <span>time:</span><span id="timerEl">60</span>
             </p>
             <p id = 'name'>
-                <span>player:</span><span id="nameEl">ron</span>
+                <span>player:</span><span id="nameEl"></span>
             </p>
             <p id = 'score'>
                 <span>score:</span><span id="scoreEl">0</span>
@@ -55,3 +57,4 @@
 </body>
 
 </html>
+
