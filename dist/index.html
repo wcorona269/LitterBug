@@ -19,13 +19,6 @@
 
 </style>
 <body>
-    <!-- <div class="parent">
-        <header class="pink section">Header</header>
-        <div class="left-side blue section" contenteditable>Left Sidebar</div>
-        <main class="section coral" contenteditable> Main Content</main>
-        <div class="right-side yellow section" contenteditable>Right Sidebar</div>
-        <footer class="green section">Footer</footer>
-      </div> -->
    
     <h1 id="game-header">LitterBug</h1>
     <dialog class="loadModal" id="loadModal">
@@ -33,11 +26,11 @@
         <p id="game-description"> WOAH!! <br> Where did all this litter come from? Keep the park clean by picking up litter & exchanging it for cash at the dump! Let's see how much cash you can make before time runs out... <br> Good luck!
         </p>
       
-        <form class="name-form" method="dialog">
+        <form name="player-name" class="name-form" method="dialog">
             <label class="name-label">Player Name:</label>
-            <input value="game_enjoyer" class="name-input" type="text">
+            <input name="name-input" class="name-input" type="text">
             <div class="button-holder">
-                 <button id="start-button" class="start-button">START GAME</button>
+                 <button name="start-button" id="start-button" class="start-button">START GAME</button>
             </div>
         </form>
     </dialog>
@@ -46,7 +39,7 @@
                 <span>time:</span><span id="timerEl">60</span>
             </p>
             <p id = 'name'>
-                <span>player:</span><span id="nameEl"></span>
+                <span>player:</span><span id="nameEl">game_enjoyer</span>
             </p>
             <p id = 'score'>
                 <span>score:</span><span id="scoreEl">0</span>

@@ -12,7 +12,6 @@ const DUMPSPOTS = [[25,25],[25,725],[975,25],[975,725]]
 
 class Game {
     constructor() {
-        // this.getName();
         this.bug = new Bug(this);
         this.belly = [];
         this.litters = [];
@@ -25,15 +24,6 @@ class Game {
         this.addDump();
         this.startCountdown(60);
         this.endGame();
-    }
-
-    getName() {
-        let text;
-        let person = prompt("Please enter your name:", "Player 1");
-        if (person == null || person == "") {
-            text = "User cancelled the prompt.";
-        }
-        nameEl.innerHTML = person;
     }
 
     endGame() {

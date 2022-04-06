@@ -4,9 +4,6 @@
 // retro game typeface
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
 
-//grid setup
-@import './styles/grid.scss';
-
 // start game popup
 @import './styles/start.scss';
 
@@ -15,7 +12,6 @@
 
 // canvas 
 @import './styles/canvas.scss';
-
 
 #game-header {
     // position: absolute;
