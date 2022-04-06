@@ -20,14 +20,15 @@ dialog {
     padding-top: 40px;
     padding-bottom: 10px;
     line-height: 30px;
+    text-align: center;
 }
 
 .name-form > label, input {
     font-size: 35px;
     // display: flex;
     // justify-content: space-between;
-    margin-top: 50px;
-    padding-top: 30px;
+    margin-top: 70px;
+    padding-top: 20px;
 }
 
 .name-input {
@@ -35,8 +36,8 @@ dialog {
     height: 20px;
     font-size: 20px;
     font-family: 'Press Start 2P';
-    box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
     text-align: center;
+    box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
     text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
 }
 
@@ -52,4 +53,9 @@ form > div {
     text-align: center;
     margin-top: 20px;
     padding-top: 40px;
+}
+
+#good-luck {
+    text-align: center;
+    font-size: 20px;
 }
