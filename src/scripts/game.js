@@ -23,13 +23,17 @@ class Game {
         this.addLitter();
         this.addDump();
         this.startCountdown(60);
+        this.time = 60;
         this.endGame();
     }
 
-    endGame() {
-        if (timerEl.innerHTML === 0) {
-            this.over = true;
-            alert(`Game Over!\nYour score is: ${scoreEl}`);
+    setTimer() {
+
+    }
+
+    endGame () {
+        if (this.time === 0) {
+            console.log('game over!');
         }
     }
 
@@ -39,6 +43,7 @@ class Game {
         const interval = setInterval(() => {
           if (counter > -1) {
           timerEl.innerHTML = counter;
+          this.time = counter;
           counter--;
         }}, 1000);
       }
