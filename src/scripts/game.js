@@ -12,6 +12,7 @@ const DUMPSPOTS = [[25,25],[25,725],[975,25],[975,725]]
 
 class Game {
     constructor() {
+        // this.getName();
         this.bug = new Bug(this);
         this.belly = [];
         this.litters = [];
@@ -22,7 +23,33 @@ class Game {
         this.gameOver = false;
         this.addLitter();
         this.addDump();
+        this.startCountdown(60);
     }
+
+    getName() {
+        let text;
+        let person = prompt("Please enter your name:", "Player 1");
+        if (person == null || person == "") {
+            text = "User cancelled the prompt.";
+        }
+        nameEl.innerHTML = person;
+    }
+
+    endGame() {
+        if (timerEl.innerHTML === 0) {
+        alert(`Game Over!\nYour score is: ${scoreEl}`);
+        }
+    }
+
+    startCountdown(seconds) {
+        let counter = seconds;
+          
+        const interval = setInterval(() => {
+          if (counter > -1) {
+          timerEl.innerHTML = counter;
+          counter--;
+        }}, 1000);
+      }
 
     allObjects() {
         let arr = this.litters.concat([this.bug], this.dumps);
@@ -47,6 +74,12 @@ class Game {
         this.move();
         this.checkCollisions();
         // this.addNewLitter();
+        this.updateBelly();
+        this.endGame();
+    }
+
+    updateBelly() {
+        bugBelly.innerHTML = this.belly.length;
     }
 
     randomPos() {
@@ -87,9 +120,6 @@ class Game {
         let new_x = newDump.pos[0];
         let new_y = newDump.pos[1];
         while (curr_x === new_x && curr_y === new_y){
-            // console.log("in the while loop");
-            // console.log(curr_x === new_x);
-            // console.log(curr_y === new_y);
             newDump = this.generateDump();
             new_x = newDump.pos[0];
             new_y = newDump.pos[1];
@@ -115,9 +145,13 @@ class Game {
         allObjects.forEach(obj => {
             if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
                 this.belly.push(obj);
+                // bugBelly.innerHTML = this.belly.length;
+                // bugBelly.innerHTML = this.belly.length;
                 this.remove(obj);
             } 
             else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
+                this.dumpVisits += 1;
+                visitsEl.innerHTML = this.dumpVisits;
                 this.dumpLitter();
                 this.addNewLitter();
             }
@@ -128,6 +162,7 @@ class Game {
         while (this.belly.length) {
             var lit = this.belly[0];
             this.score += lit.value;
+            scoreEl.innerHTML = this.score;
             this.belly.shift();
             this.addDump();
         }

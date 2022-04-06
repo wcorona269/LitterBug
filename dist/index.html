@@ -5,10 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css"/>
-    <script src="./main.js">
-      
-    </script>
+    <!-- <SCRIPT TYPE="text/javascript">
+    function popup(mylink, windowname) {
+        if (! window.focus) return true;
+        var href;
+        if (typeof(mylink) == 'string') href=mylink; else href=mylink.href; 
+        
+        window.open(href, windowname, 'width=400,height=200,scrollbars=yes'); return false; } </SCRIPT> -->
+
+    <script src="./main.js"></script>
     <title>LitterBug</title>
 </head>
 
@@ -21,8 +28,29 @@
 </style>
 
 <body>
+   
     <h1>Let's play LitterBug!</h1>
-    <canvas id="game-canvas" height="750" width="1000" style="border: 3px solid darkgreen"></canvas>
+        <div class="p-container">
+
+            <p id = 'timer'>
+                <span>time:</span><span id="timerEl">60</span>
+            </p>
+            <p id = 'name'>
+                <span>player:</span><span id="nameEl">ron</span>
+            </p>
+            <p id = 'score'>
+                <span>score:</span><span id="scoreEl">0</span>
+            </p>
+            <p id="belly">
+                <span>items:</span><span id="bugBelly">0</span>
+            </p>
+            <p id="visits">
+                <span>dumps:</span><span id="visitsEl">0</span>
+            </p>
+        </div>
+    <div class="game-container">
+    <canvas id="game-canvas" height="750" width="1000"></canvas>
+    </div>
     <!-- <script src="../src/index.js"></script> -->
 </body>
 
