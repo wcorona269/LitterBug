@@ -7,7 +7,6 @@ const background = new Image();
 background.src = "../../images/grasstest_1.png"
 
 const LITTERCOUNT = 15;
-// const GAMECOLOR = "lightgreen"
 const DECELERATOR = 0.9;
 const DIM_X = 1000;
 const DIM_Y = 750;
@@ -27,13 +26,6 @@ class Game {
         this.addDump();
         this.startCountdown(60);
         this.time = 60;
-        this.endGame();
-    }
-
-    endGame () {
-        if (this.time === 0) {
-        setTimeout(() => {console.log("game over!")}, 3000);
-        }
     }
 
     startCountdown(seconds) {
@@ -50,7 +42,6 @@ class Game {
     allObjects() {
         let arr = this.litters.concat([this.bug], this.dumps);
         return arr;
-        // later will be: let arr = this.litters.concat([this.bug], this.belly)
     }
 
     draw(ctx) {
@@ -70,15 +61,12 @@ class Game {
         });
 
         ctx.font = "20px Helvetica";
-        // ctx.fillStyle = GAMECOLOR;
     };
 
     step() {
         this.move();
         this.checkCollisions();
-        // this.addNewLitter();
         this.updateBelly();
-        this.endGame();
     }
 
     updateBelly() {
@@ -170,10 +158,6 @@ class Game {
             this.belly.shift();
             this.addDump();
         }
-        // for (let i = 0; i < this.belly.length; i++) {
-        //     this.score += this.belly[i].value;
-        //     this.belly.splice(this.belly.indexOf(this.belly[i]), 1);
-        // };
     }
 
     remove (obj) {

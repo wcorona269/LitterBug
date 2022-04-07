@@ -10,9 +10,9 @@ const app = express();
 // serve files / assets from the dist folder
 app.use(express.static('dist')); 
 
-// in response to `GET /` requests, send the file `dist/index.html`
+// in response to `GET /` requests, send the file `/index.html`
 app.get('/', (request, response) => {
-  response.sendFile(`${__dirname}/dist/index.html`);
+  response.sendFile(`${__dirname}/index.html`);
 });
 
 // Heroku sets process.env.PORT in production; use 8000 in dev

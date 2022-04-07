@@ -15,7 +15,6 @@ window.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("submit", () => {
     const nameEl = document.querySelector('#nameEl');
     const nameInput = document.querySelector('input[name="name-input"]').value;
-    // console.log(nameInput);
     nameEl.innerHTML = nameInput;
     const timerEl = document.querySelector('#timerEl');
     const scoreEl = document.querySelector('#scoreEl');
