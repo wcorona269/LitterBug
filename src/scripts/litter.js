@@ -41,8 +41,9 @@ class Litter extends MovingObject {
         super(pos, [0,0], RADIUS, COLOR, game)
         this.title = LITTERNAMES[Math.floor(Math.random()*LITTERNAMES.length)];
         this.value = LITTERTYPES[this.title];
-        console.log(this.value);
+        // console.log(this.value);
     }
+    
     draw (ctx) {
         if (this.title === "water") {
             ctx.drawImage(water, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
