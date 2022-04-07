@@ -4,6 +4,8 @@ import GameView from "./scripts/game_view"
 
 
 window.addEventListener('DOMContentLoaded', () => {
+    const statsEl = document.querySelector(".p-container");
+    statsEl.style.visibility = "hidden";
     const canvasEl = document.getElementById("game-canvas");
     canvasEl.style.visibility = "hidden";
     const loadModal = document.querySelector("#loadModal");
@@ -22,6 +24,8 @@ document.addEventListener("submit", () => {
     const visitsEl = document.querySelector('#visitsEl');
     const canvasEl = document.getElementById("game-canvas");
     canvasEl.style.visibility = "visible";
+    const statsEl = document.querySelector(".p-container");
+    statsEl.style.visibility = "visible";
     const ctx = canvasEl.getContext("2d");
 
     canvasEl.width = 1000;

@@ -1,6 +1,7 @@
 // css reset
 @import './styles/reset.scss';
 
+
 // retro game typeface
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
 
@@ -28,7 +29,9 @@
 
 body {
     font-family: "Press Start 2P";
-    background-color: rgb(226, 124, 0);
+    // background-color: rgb(226, 124, 0);
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
     display: flex;
     justify-content: center;
     // height: 100px;

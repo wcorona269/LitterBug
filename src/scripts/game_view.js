@@ -40,11 +40,11 @@ class GameView {
                 this.bug.travel([-5, 0]);
                 break;
             case 's':
-                if (this.bug.pos[1] < 675)    
+                if (this.bug.pos[1] < 650)    
                 this.bug.travel([0, 5]);
                 break;
             case 'd':
-                if (this.bug.pos[0] < 925)
+                if (this.bug.pos[0] < 900)
                 this.bug.travel([5, 0]);
                 break;
         }
@@ -58,6 +58,10 @@ class GameView {
         requestAnimationFrame(this.render.bind(this));
         } else {
             setTimeout(() => {
+                const statsEl = document.querySelector(".p-container");
+                statsEl.style.visibility = "hidden";
+                const canvasEl = document.getElementById("game-canvas");
+                canvasEl.style.visibility = "hidden";
                 const endModal = document.querySelector("#endModal");
                 endModal.showModal();
                 const scoreEl = document.querySelector('#scoreEl');

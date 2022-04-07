@@ -10,5 +10,6 @@ canvas {
     transform: translate(-50%, -50%);  
     border: 10px solid purple; 
     text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
-    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;            
+    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;  
+    border-radius: 20px;          
 }
