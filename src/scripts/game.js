@@ -7,7 +7,7 @@ const background = new Image();
 background.src = "../../images/grasstest_1.png"
 
 const LITTERCOUNT = 15;
-const GAMECOLOR = "lightgreen"
+// const GAMECOLOR = "lightgreen"
 const DECELERATOR = 0.9;
 const DIM_X = 1000;
 const DIM_Y = 750;
@@ -55,7 +55,7 @@ class Game {
 
     draw(ctx) {
         ctx.clearRect(0, 0, DIM_X, DIM_Y);
-        ctx.fillStyle = GAMECOLOR;
+        // ctx.fillStyle = GAMECOLOR;
         ctx.fillRect(0, 0, DIM_X, DIM_Y);
 
         // get the scale
@@ -64,14 +64,13 @@ class Game {
         var x = (1000 / 2) - (background.width / 2) * scale;
         var y = (750 / 2) - (background.height / 2) * scale;
         ctx.drawImage(background, x, y, background.width * scale, background.height * scale);
-        // ctx.drawImage(background, x, y, DIM_X, DIM_Y, 0, 0, 1000, 750);
 
         this.allObjects().forEach(el => {
             el.draw(ctx);
         });
 
         ctx.font = "20px Helvetica";
-        ctx.fillStyle = GAMECOLOR;
+        // ctx.fillStyle = GAMECOLOR;
     };
 
     step() {
