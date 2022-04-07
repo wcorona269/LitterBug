@@ -1,7 +1,9 @@
 import MovingObject from "./moving_object";
 
-// CORNERS = four position options for each screen corner
-const RADIUS = 25;
+const bin = new Image();
+bin.src = "../../images/openbin.png";
+
+const RADIUS = 30;
 const COLOR = 'purple'
 
 class Dump extends MovingObject{
@@ -9,8 +11,10 @@ class Dump extends MovingObject{
         super(pos, [0, 0], RADIUS, COLOR, game);
     }
 
-   
-
+    draw (ctx) {
+        ctx.drawImage(bin,this.pos[0] - 15, this.pos[1] - 15, 50, 50);
+    }
+    // context.drawImage(img,x,y,width,height)
     // function respawns on collision
 }
 

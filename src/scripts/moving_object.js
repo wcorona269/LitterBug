@@ -34,7 +34,6 @@ class MovingObject {
     }
 
     isCollidedWith(otherObject) {
-        // debugger;
         const centerDist = this.dist(this.pos, otherObject.pos);
         return centerDist < (this.radius + otherObject.radius);
     };

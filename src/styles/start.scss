@@ -2,9 +2,9 @@ dialog {
     background-color: #ffd778;
     border: 10px solid purple;
     width: 700px;
-    height: 525px;
-    box-shadow: 5px 5px 0px #eee, 7px 7px 7px #707070;;
-    text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;
+    height: fit-content;
+    text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
+    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;    
     align-items: center;
 }
 
@@ -23,12 +23,15 @@ dialog {
     text-align: center;
 }
 
+
+
 .name-form > label, input {
-    font-size: 35px;
+    font-size: 30px;
     // display: flex;
     // justify-content: space-between;
-    margin-top: 70px;
+    margin-top: 40px;
     padding-top: 20px;
+    padding-left: 15px;
 }
 
 .name-input {
@@ -37,14 +40,17 @@ dialog {
     font-size: 20px;
     font-family: 'Press Start 2P';
     text-align: center;
+    border: 5px solid purple;
     box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
     text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
 }
 
-button {
-    font-size: 30px;
-    font-family: 'Press Start 2P';
+.start-button {
+    text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
     box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
+    font-size: 30px;
+    padding: 10px;
+    font-family: 'Press Start 2P';
 }
 
 form > div {
@@ -52,10 +58,38 @@ form > div {
     justify-content: space-around;
     text-align: center;
     margin-top: 20px;
-    padding-top: 40px;
+    padding: 10px;
 }
 
 #good-luck {
     text-align: center;
     font-size: 20px;
+}
+
+.endModal {
+    background-color: #ffd778;
+    // width: 500px;
+    // height: 300px;
+    width:fit-content;
+    height: fit-content;
+}
+
+#display-score {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    font-size: 24px;
+}
+
+#finalScoreEl {
+    background-color: white;
+    padding: 10px;
+    border: 10px solid purple;
+}
+
+.restart-form > div {
+    margin: 5px;
 }

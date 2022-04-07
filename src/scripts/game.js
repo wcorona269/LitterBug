@@ -3,12 +3,15 @@ import Litter from "./litter";
 import Dump from "./dump";
 import { remove } from "immutable";
 
+const background = new Image();
+background.src = "../../images/grasstest_1.png"
+
 const LITTERCOUNT = 15;
 const GAMECOLOR = "lightgreen"
 const DECELERATOR = 0.9;
 const DIM_X = 1000;
 const DIM_Y = 750;
-const DUMPSPOTS = [[25,25],[25,725],[975,25],[975,725]]
+const DUMPSPOTS = [[40,40],[40,710],[960,40],[960,710]]
 
 class Game {
     constructor() {
@@ -27,13 +30,9 @@ class Game {
         this.endGame();
     }
 
-    setTimer() {
-
-    }
-
     endGame () {
         if (this.time === 0) {
-            console.log('game over!');
+        setTimeout(() => {console.log("game over!")}, 3000);
         }
     }
 
@@ -58,6 +57,14 @@ class Game {
         ctx.clearRect(0, 0, DIM_X, DIM_Y);
         ctx.fillStyle = GAMECOLOR;
         ctx.fillRect(0, 0, DIM_X, DIM_Y);
+
+        // get the scale
+        var scale = Math.max(1000 / background.width, 750 / background.height);
+        // get the top left position of the image
+        var x = (1000 / 2) - (background.width / 2) * scale;
+        var y = (750 / 2) - (background.height / 2) * scale;
+        ctx.drawImage(background, x, y, background.width * scale, background.height * scale);
+        // ctx.drawImage(background, x, y, DIM_X, DIM_Y, 0, 0, 1000, 750);
 
         this.allObjects().forEach(el => {
             el.draw(ctx);
@@ -160,6 +167,7 @@ class Game {
             var lit = this.belly[0];
             this.score += lit.value;
             scoreEl.innerHTML = this.score;
+            finalScoreEl.innerHTML = this.score;
             this.belly.shift();
             this.addDump();
         }

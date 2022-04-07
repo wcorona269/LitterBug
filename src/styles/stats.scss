@@ -13,13 +13,15 @@
 }
 
 
- div > p {
+ .p-container > p {
     font-size: 20px;
     align-self: flex-end;
     padding-left: 0px;
     padding-right: 20px;
-    border: 7px solid #2C4E72;
-    background-color: yellow;
+    border: 7px solid purple;
+    background-color: #ffd778;
+    text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
+    box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
     padding: 10px;
     
 }

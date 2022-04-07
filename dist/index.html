@@ -19,7 +19,6 @@
 
 </style>
 <body>
-   
     <h1 id="game-header">LitterBug</h1>
     <dialog class="loadModal" id="loadModal">
         <h1 id="popup-header">Let's Play Litterbug!</h1>
@@ -28,9 +27,20 @@
       
         <form name="player-name" class="name-form" method="dialog">
             <label class="name-label">Player Name:</label>
-            <input name="name-input" class="name-input" type="text">
+            <input name="name-input" class="name-input" type="text" value="game_enjoyer">
             <div class="button-holder">
                  <button name="start-button" id="start-button" class="start-button">START GAME</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="endModal" id="endModal">
+        <h1 id="popup-header">GAME OVER</h1>
+        <div id="display-score">
+            <p>SCORE:</p><span id="finalScoreEl">0</span>
+        </div>
+        <form name="player-name" class="restart-form" method="dialog">
+            <div class="button-holder">
+                 <button name="start-button" id="start-button" class="start-button">PLAY AGAIN</button>
             </div>
         </form>
     </dialog>

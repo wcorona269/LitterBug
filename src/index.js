@@ -15,6 +15,7 @@ document.addEventListener("submit", () => {
     nameEl.innerHTML = nameInput;
     const timerEl = document.querySelector('#timerEl');
     const scoreEl = document.querySelector('#scoreEl');
+    const finalScoreEl = document.querySelector('#finalScoreEl');
     const bugBelly = document.querySelector('#bugBelly');
     const visitsEl = document.querySelector('#visitsEl');
     const canvasEl = document.getElementById("game-canvas");
@@ -28,4 +29,7 @@ document.addEventListener("submit", () => {
     const gameView = new GameView(ctx);
     gameView.start();
 });
+
+
+
 

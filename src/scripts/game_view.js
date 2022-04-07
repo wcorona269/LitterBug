@@ -8,12 +8,20 @@ class GameView {
         this.game = new Game();
         this.ctx = ctx;
         this.bug = this.game.bug;
+        this.over = false;
     }
 
 
     start(){
         this.bindKeyHandlers();
+        // this.end();
         requestAnimationFrame(this.render.bind(this));
+    }
+
+    end() {
+        if (this.game.time === 0) {
+            this.over = true;
+        }
     }
     
     bindKeyHandlers(){
@@ -39,14 +47,27 @@ class GameView {
                 if (this.bug.pos[0] < 950)
                 this.bug.travel([5, 0]);
                 break;
-          
         }
     }
 
     render() {
+        if (!this.over) {
         this.game.step();
         this.game.draw(this.ctx);
+        this.end();
         requestAnimationFrame(this.render.bind(this));
+        } else {
+            setTimeout(() => {
+                const endModal = document.querySelector("#endModal");
+                endModal.showModal();
+                const scoreEl = document.querySelector('#scoreEl');
+                const bugBelly = document.querySelector('#bugBelly');
+                const visitsEl = document.querySelector('#visitsEl');
+                scoreEl.innerHTML = 0;
+                bugBelly.innerHTML = 0;
+                visitsEl.innerHTML = 0;
+            }, 2000);
+        }
     };
 }
 
