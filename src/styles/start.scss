@@ -4,7 +4,7 @@ dialog {
     width: 700px;
     height: fit-content;
     text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
-    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;    
+    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;
     align-items: center;
 }
 
@@ -41,13 +41,13 @@ dialog {
     font-family: 'Press Start 2P';
     text-align: center;
     border: 5px solid purple;
-    box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
-    text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
+    text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
+    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;
 }
 
 .start-button {
-    text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;;
-    box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
+    text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
+    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;
     font-size: 30px;
     padding: 10px;
     font-family: 'Press Start 2P';
@@ -92,4 +92,12 @@ form > div {
 
 .restart-form > div {
     margin: 5px;
+}
+
+button:hover {background-color: yellow;}
+
+button:active {
+  background-color: rgb(226, 124, 0);
+  box-shadow: 0 5px #666;
+  transform: translateY(8px);
 }

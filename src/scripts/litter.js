@@ -23,7 +23,7 @@ const can = new Image();
 can.src = "../../images/litter/can.png";
 
 const stycup = new Image();
-stycup.src = "../../images/litter/stycup.png";
+stycup.src = "../../images/litter/styrocup.png";
 
 const pizza = new Image();
 pizza.src = "../../images/litter/pizza.png";
@@ -32,19 +32,37 @@ pizza.src = "../../images/litter/pizza.png";
 const RADIUS = 13;
 const COLOR = 'lightblue';
 
-const LITTERTYPES = ['water', 'can', 'coke', 'beer', 'stycup', 'box', 'news', 'jug', 'pizza'];
+const LITTERNAMES = ['water', 'can', 'coke', 'beer', 'stycup', 'box', 'news', 'jug', 'pizza'];
+const LITTERTYPES = {'water':1, 'can':1, 'coke':2, 'beer':2, 'stycup':3,'news':3, 'box':4, 'jug':4, 'pizza':5};
 
 
 class Litter extends MovingObject {
     constructor(pos, game) {
         super(pos, [0,0], RADIUS, COLOR, game)
-        this.value;
-        this.title = LITTERTYPES[Math.floor(Math.random()*LITTERTYPES.length)];
-
+        this.title = LITTERNAMES[Math.floor(Math.random()*LITTERNAMES.length)];
+        this.value = LITTERTYPES[this.title];
+        console.log(this.value);
     }
     draw (ctx) {
-        ctx.drawImage(water, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5,
-            30, 30);
+        if (this.title === "water") {
+            ctx.drawImage(water, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "can") {
+            ctx.drawImage(can, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "coke") {
+            ctx.drawImage(coke, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "beer") {
+            ctx.drawImage(beer, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "stycup") {
+            ctx.drawImage(stycup, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "box") {
+            ctx.drawImage(box, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "news") {
+            ctx.drawImage(news, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else  if (this.title === "jug") {
+            ctx.drawImage(jug, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        } else {
+            ctx.drawImage(pizza, 5, 5, 45, 30, this.pos[0] - 5, this.pos[1] - 5, 30, 30);
+        };
     }
 };
 
