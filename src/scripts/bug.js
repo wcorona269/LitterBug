@@ -38,13 +38,13 @@ class Bug extends MovingObject {
 
     draw(ctx){
         if(this.vel[0] >= 0){
-            ctx.drawImage(this.br, this.pos[0] - 5, this.pos[1] - 5, 50,50)
+            ctx.drawImage(this.br, this.pos[0] - 5, this.pos[1] - 5, 50,50);
             
         }
         else if(this.vel[0] < 0){
-            ctx.drawImage(this.bl, this.pos[0] - 5, this.pos[1] - 5, 50, 50)
+            ctx.drawImage(this.bl, this.pos[0] - 5, this.pos[1] - 5, 50, 50);
         }
     }
-}
+};
 
 export default Bug;
