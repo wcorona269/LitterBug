@@ -1,7 +1,21 @@
 # *LitterBug*
 
-***LitterBug*** is a 2D game where you are a trash-collecting bug, picking up up litter which appears randomly on the map. A Bug can carry up to 3 pieces of litter at a time and exchange the litter for cash at the Dump (placed in a corner of the map & respawning each time you visit).
-Some trash will reward more money than others (i.e. a soda can is $1 but a broken-down car is $5), but more rewarding trash will also slow you down (so you may not make it to the dump in time). The objective is to make as much cash as possible before time runs out!
+## Description
+
+***LitterBug*** is a **2D arcade-style game** where you are a trash-collecting **bug**, picking up up **litter** which appears randomly on the map. A Bug can carry **up to 5 pieces** of litter at a time and exchange the litter for **cash** at the **Dump** (placed in a corner of the map & respawning each time you visit).
+Some litter will reward more money than others (i.e. a soda can is $1 but a pizza box is $5).  Let's see how much cash you can make before time runs out... Good luck!
+
+## Live
+[Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
+
+## Languages and Technologies
+- Vanilla JavaScript
+- HTML5/CSS3
+- Canvas
+
+## Game Anatomy
+
+
 
 ## Functionality & MVPs
 
@@ -11,14 +25,21 @@ Some trash will reward more money than others (i.e. a soda can is $1 but a broke
 - Read instructions from a pop-up window
 - Use keyboard arrows to crawl around the map
 - Collect litter & exchange it for cash at the Dump
-- There 5 litter types, each unique in value:
-    - $1 = soda can
-    - $2 = pizza box
-    - $3 = television
-    - $4 = couch
-    - $5 = car
-- The more rewarding a piece of litter is, the more it slows the bug down.
+    - Different litter types have different values
+<!-- - The more rewarding a piece of litter is, the more it slows the bug down. -->
 
+## Litter value chart
+value | items | icon |
+------------- | ------------- | ------------- |
+$1  | water |![water](images/litter/water.png)
+$1  | can |![can](images/litter/can.png) 
+$2  | pop |![soda](images/litter/coke.png) 
+$2  | beer |![beer](images/litter/beer.png) 
+$3  | styrofoam cup |![styrofoam cup](images/litter/styrocup.png) 
+$3  | newspaper |![newspaper](images/litter/news.png) 
+$4  | box |![box](images/litter/box.png) 
+$4  | jug |![jug](images/litter/jug.png) 
+$5  | pizza |![pizza](images/litter/pizza.png) 
 ### In addition, this project will include:
 
 - Windows displaying player name, countdown clock, cash count, current litter, and # of items deposited

@@ -14,7 +14,6 @@ class GameView {
 
     start(){
         this.bindKeyHandlers();
-        // this.end();
         requestAnimationFrame(this.render.bind(this));
     }
 

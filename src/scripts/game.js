@@ -1,7 +1,6 @@
 import Bug from "./bug";
 import Litter from "./litter";
 import Dump from "./dump";
-import { remove } from "immutable";
 
 const background = new Image();
 background.src = "../../images/grasstest_1.png"
