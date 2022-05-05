@@ -1,4 +1,4 @@
-# *LitterBug*
+# LitterBug
 
 ## Description
 
