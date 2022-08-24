@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 dialog {
     background-color: #ffd778;
     border: 10px solid purple;
@@ -24,12 +26,8 @@ dialog {
     text-align: center;
 }
 
-
-
 .name-form > label, input {
     font-size: 30px;
-    // display: flex;
-    // justify-content: space-between;
     margin-top: 40px;
     padding-top: 20px;
     padding-left: 15px;
@@ -42,7 +40,6 @@ dialog {
     font-family: 'Press Start 2P';
     text-align: center;
     border: 5px solid purple;
-    // text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
     box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;
     border-radius: 20px;
     background-color: rgb(190, 237, 255);
@@ -51,8 +48,8 @@ dialog {
 
 .start-button {
     border: 5px solid purple;
-    text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
-    box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;
+    text-shadow: $text-shadow;
+    box-shadow:  $box-shadow;
     font-size: 30px;
     padding: 10px;
     font-family: 'Press Start 2P';
@@ -76,8 +73,6 @@ form > div {
 
 .endModal {
     background-color: #ffd778;
-    // width: 500px;
-    // height: 300px;
     width:fit-content;
     height: fit-content;
 }
@@ -95,7 +90,7 @@ form > div {
 #finalScoreEl {
     background-color: rgb(190, 237, 255);
     padding: 10px;
-    border: 10px solid purple;
+    border: $border;
     border-radius: 20px;
 }
 

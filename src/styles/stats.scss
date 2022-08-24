@@ -1,18 +1,16 @@
-.p-container {
+@import './variables.scss';
+
+.stats {
+    grid-area: stats;
     display: flex;
     justify-content: space-around;
     margin-bottom: 1;
     padding-bottom: 1%;
-    top: 5%;
     display: flex;
     gap: .5rem;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
-
- .p-container > p {
+ .stats > p {
     font-size: 20px;
     align-self: flex-end;
     margin-bottom: 10px;
@@ -23,11 +21,10 @@
     box-shadow:  2px 2px 0px #eee, 5px 5px 0px #707070;
     padding: 10px;
     border-radius: 10px;
-
 }
 
 #timerEl, #nameEl, #scoreEl, #bugBelly, #visitsEl {
-    background-color: rgb(190, 237, 255);
+    background-color: $text-background;
     padding: 4px;
     border: 2px solid purple;
     border-radius: 10px;

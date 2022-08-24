@@ -8,19 +8,17 @@ class GameView {
         this.game = new Game();
         this.ctx = ctx;
         this.bug = this.game.bug;
-        this.over = false;
+        this.time = this.game.time;
     }
-
-
+    
     start(){
+        this.game.time = 60;
+        this.game.over = false;
+        this.game.startCountdown(60);
+        this.game.showRemainingLives();
+        this.game.handlePause();
         this.bindKeyHandlers();
         requestAnimationFrame(this.render.bind(this));
-    }
-
-    end() {
-        if (this.game.time === 0) {
-            this.over = true;
-        }
     }
     
     bindKeyHandlers(){
@@ -28,7 +26,7 @@ class GameView {
     }
 
     keydown(event){
-        if (this.game.time === 0) return;
+        if (this.time === 0) return;
         switch(event.key){
             case 'w':
                 if (this.bug.pos[1] > 75)
@@ -46,33 +44,46 @@ class GameView {
                 if (this.bug.pos[0] < 900)
                 this.bug.travel([5, 0]);
                 break;
+            case ' ':
+                this.game.paused = !this.game.paused;
+                this.game.handlePause();
+                requestAnimationFrame(this.render.bind(this));
+                break;
         }
     }
 
     render() {
-        if (!this.over) {
+        if (!(this.game.over) && !(this.game.paused)) {
         this.game.step();
         this.game.draw(this.ctx);
-        this.end();
         requestAnimationFrame(this.render.bind(this));
-        } else {
-            setTimeout(() => {
-                const statsEl = document.querySelector(".p-container");
-                statsEl.style.visibility = "hidden";
-                const canvasEl = document.getElementById("game-canvas");
-                canvasEl.style.visibility = "hidden";
-                const endModal = document.querySelector("#endModal");
-                endModal.showModal();
-                const scoreEl = document.querySelector('#scoreEl');
-                const bugBelly = document.querySelector('#bugBelly');
-                const visitsEl = document.querySelector('#visitsEl');
-                scoreEl.innerHTML = 0;
-                bugBelly.innerHTML = 0;
-                visitsEl.innerHTML = 0;
-            }, 2000);
-        }
+    } else if (this.game.over) {
+        setTimeout(() => {
+            // this.game = new Game();
+            // this.bug = this.game.bug;
+            // this.game.paused = false;
+            // this.game.time = 60;
+            const game = document.getElementById('game');
+            game.style.visibility = "hidden";
+            const canvasEl = document.getElementById("game-canvas");
+            canvasEl.style.visibility = "hidden";
+            const endModal = document.querySelector("#endModal");
+            endModal.showModal();
+            const scoreEl = document.querySelector('#scoreEl');
+            const bugBelly = document.querySelector('#bugBelly');
+            const visitsEl = document.querySelector('#visitsEl');
+            const highScoreEl = document.querySelector('#highScoreEl');
+            const timerEl = document.querySelector('#timerEl');
+            if (scoreEl.innerHTML > highScoreEl.innerHTML) {
+                highScoreEl.innerHTML = scoreEl.innerHTML
+            }
+            timerEl.innerHTML = 60;
+            scoreEl.innerHTML = 0;
+            bugBelly.innerHTML = 0;
+            visitsEl.innerHTML = 0;
+            requestAnimationFrame(this.render.bind(this));
+        }, 2000)}; 
     };
 }
-
 
 export default GameView;

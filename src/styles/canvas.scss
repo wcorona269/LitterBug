@@ -1,15 +1,148 @@
+body {
+    margin: 0px;
+    padding: 50px;
+}
 
 .game-container {
-    background-image: url("https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png");
+    display: flex;
+    justify-content: center;
+    grid-area: game;
+}
+
+.game {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1100px 1fr;
+    grid-template-rows: 1fr fit-content 1fr;
+    grid-template-areas:
+    'name stats .'
+    'controls game scoreboard'
+    '. . .'
 }
 
 canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);  
+    background-image: url("https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png");
     border: 10px solid purple; 
     text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
     box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;  
     border-radius: 20px;          
+}
+
+.game-info {
+    line-height: 2;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 20px;
+
+    #lives, #high-score {
+        width: 200px;
+    }
+
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div {
+        background-color: #ffd778;
+        width: 100%;
+        max-width: 250px;
+    }
+
+
+
+	h3 {
+        margin-bottom: 10px;
+        text-align: center;
+	}
+
+    img {
+        height: 35px;
+    }
+}
+
+.game-info > div {
+    border: $border;
+    box-shadow: $box-shadow;
+    text-shadow: $text-shadow;
+    font-size: $font-size;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+
+#controls {
+    grid-area: controls;
+}
+
+#scoreboard {
+    grid-area: scoreboard;
+}
+
+#scoreboard > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    div {
+        display: flex;
+        background-color: $text-background;
+        padding: 15px;
+        justify-content: center;
+        width: 75px;
+        border: 2px solid black;
+        border-radius: 20px;
+    }
+}
+
+kbd {
+    background-color: #eee;
+    // font-family: 'Courier New', Courier, monospace;
+    text-shadow: none;
+    border-radius: 8px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 2px 3px black;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 3px;
+    width: 30px;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#spacebar {
+    width: 100px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pause-menu {
+    position: absolute;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    font-size: 40px;
+    text-shadow: $text-shadow;
+    color: purple;
+
+    p {
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    }
 }

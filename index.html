@@ -6,65 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/main.css"/>
-    <script src="dist/main.js"></script>
+    <link rel="stylesheet" href="./dist/main.css"/>
+    <script src="./dist/main.js"></script>
     <title>LitterBug</title>
 </head>
-
-<style>
-    body {
-        margin: 0px;
-        padding: 50px;
-    }
-
-</style>
+<h3 class="pause-menu hidden">
+    <p>
+        Paused
+    </p>
+</h3>
 <body>
-    <h1 id="game-header">LitterBug</h1>
     <dialog class="loadModal" id="loadModal">
-        <h1 id="popup-header">Let's Play Litterbug!</h1>
-        <p id="game-description"> WOAH!! <br> Where did all this litter come from? Keep the park clean by picking up litter & exchanging it for cash at the dump! Let's see how much cash you can make before time runs out... <br> Good luck!
-        </p>
-      
-        <form name="player-name" class="name-form" method="dialog">
-            <label class="name-label">Player Name:</label>
-            <input name="name-input" class="name-input" type="text" value="game_enjoyer">
-            <div class="button-holder">
-                 <button name="start-button" id="start-button" class="start-button">START GAME</button>
+            <h1 id="popup-header">Let's Play Litterbug!</h1>
+            <p id="game-description"> WOAH!! <br> Where did all this litter come from? Keep the park clean by picking up litter & exchanging it for cash at the dump! Let's see how much cash you can make before time runs out... <br> Good luck!
+            </p>
+        
+            <form name="player-name" class="name-form" method="dialog">
+                <label class="name-label">Player Name:</label>
+                <input name="name-input" class="name-input" type="text" value="game_enjoyer">
+                <div class="button-holder">
+                    <button name="start-button" id="start-button" class="start-button">START GAME</button>
+                </div>
+            </form>
+        </dialog>
+        <dialog class="endModal" id="endModal">
+            <h1 id="popup-header">GAME OVER</h1>
+            <div id="display-score">
+                <p>SCORE:</p><span id="finalScoreEl">0</span>
             </div>
-        </form>
-    </dialog>
-    <dialog class="endModal" id="endModal">
-        <h1 id="popup-header">GAME OVER</h1>
-        <div id="display-score">
-            <p>SCORE:</p><span id="finalScoreEl">0</span>
-        </div>
-        <form name="player-name" class="restart-form" method="dialog">
-            <div class="button-holder">
-                 <button name="start-button" id="start-button" class="start-button">PLAY AGAIN</button>
+            <form name="player-name" class="restart-form" method="dialog">
+                <div class="button-holder">
+                    <button name="start-button" id="start-button" class="start-button">PLAY AGAIN</button>
+                </div>
+            </form>
+        </dialog>
+        <div class='game' id='game'>
+            <h1 id="game-header">LitterBug</h1>
+            <div class="stats">
+                <p id = 'timer'>
+                    <span>Time:</span><span id="timerEl">60</span>
+                </p>
+                <p id = 'name'>
+                    <span>Player:</span><span id="nameEl">game_enjoyer</span>
+                </p>
+                <p id = 'score'>
+                    <span>Cash:</span><span id="scoreEl">0</span>
+                </p>
+                <p id="belly">
+                    <span>Items:</span><span id="bugBelly">0</span>
+                </p>
+                <p id="visits">
+                    <span>Deposits:</span><span id="visitsEl">0</span>
+                </p>
             </div>
-        </form>
-    </dialog>
-    <div class="p-container">
-            <p id = 'timer'>
-                <span>time:</span><span id="timerEl">60</span>
-            </p>
-            <p id = 'name'>
-                <span>player:</span><span id="nameEl">game_enjoyer</span>
-            </p>
-            <p id = 'score'>
-                <span>cash:</span><span id="scoreEl">0</span>
-            </p>
-            <p id="belly">
-                <span>items:</span><span id="bugBelly">0</span>
-            </p>
-            <p id="visits">
-                <span>deposits:</span><span id="visitsEl">0</span>
-            </p>
+            <div class="game-container">
+                <canvas id="game-canvas" height="750" width="1000"></canvas>
+            </div>
+            <div class="game-info" id="controls">
+                <div>
+                    <h3>Controls</h3>
+                    <span><p>Up</p><kbd>W</kbd></span>
+                    <span><p>Down</p><kbd>S</kbd></span>
+                    <span><p>Left</p><kbd>A</kbd></span>
+                    <span><p>Right</p><kbd>D</kbd></span>
+                    <span><p>Pause</p><kbd id="spacebar">Space</kbd></span>
+                </div>
+                <div>
+                    <h3>Item Values</h3>
+                    <span><p>$5</p><img src="./images/litter/pizza.png"></span>
+                    <span><p>$4</p>
+                    <p>
+                        <img src="./images/litter/box.png">
+                        <img src="./images/litter/jug.png">
+                    </p>
+                    </span>
+                    <span><p>$3</p>
+                    <p>
+                        <img src="./images/litter/styrocup.png">
+                        <img src="./images/litter/news.png">
+                    </p>
+                    </span>
+                    <span><p>$2</p>
+                    <p>
+                        <img src="./images/litter/coke.png">
+                        <img src="./images/litter/beer.png">
+                    </p>
+                    </span>
+                    <span><p>$1</p>
+                    <p>
+                        <img src="./images/litter/water.png">
+                        <img src="./images/litter/can.png">
+                    </p>
+                    </span>
+                </div>
+            </div>
+            <div class="game-info" id="scoreboard">
+                <div id='lives'>
+                    <h3>
+                        Lives
+                    </h3>
+                    <p id="livesCount"></p>
+                </div>
+                <div id="high-score">
+                    <h3>
+                        High Score
+                    </h3>
+                    <div id="highScoreEl">0</div>
+                </div>
+            </div>
         </div>
-    <div class="game-container">
-    <canvas id="game-canvas" height="750" width="1000"></canvas>
     </div>
-    <!-- <script src="../src/index.js"></script> -->
 </body>
 
 </html>
