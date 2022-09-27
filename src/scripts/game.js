@@ -29,10 +29,11 @@ class Game {
         this.startCountdown(60);
         this.time = 60;
         this.paused = false;
+        // this.restart = this.restart.bind(this);
     }
 
     startCountdown(seconds) {
-        // this.time = 60;
+        this.time = 60;
         let counter = seconds;
         let timerEl = document.querySelector('#timerEl');
 
@@ -113,6 +114,9 @@ class Game {
     }
 
     step() {
+        if (!(this.time) || !(this.lives)) {
+            this.over = true;
+        }
         
         this.checkCollisions();
         this.addEnemy();
@@ -121,10 +125,6 @@ class Game {
         this.move();
         this.updateEnemySpeed();
         this.findBug();
-
-        if (!(this.time) || !(this.lives)) {
-            this.over = true;
-        }
     }
 
     updateBelly() {

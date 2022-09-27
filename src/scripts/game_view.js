@@ -9,12 +9,17 @@ class GameView {
         this.ctx = ctx;
         this.bug = this.game.bug;
         this.time = this.game.time;
+        // this.restart = this.restart.bind(this);
+        this.timeout;
     }
-    
+
+    restart() {
+        // this.game = new Game();
+        clearTimeout(this.timeout);
+        this.start();
+    }
+
     start(){
-        this.game.time = 60;
-        this.game.over = false;
-        this.game.startCountdown(60);
         this.game.showRemainingLives();
         this.game.handlePause();
         this.bindKeyHandlers();
@@ -54,15 +59,12 @@ class GameView {
 
     render() {
         if (!(this.game.over) && !(this.game.paused)) {
-        this.game.step();
-        this.game.draw(this.ctx);
-        requestAnimationFrame(this.render.bind(this));
-    } else if (this.game.over) {
-        setTimeout(() => {
-            // this.game = new Game();
-            // this.bug = this.game.bug;
-            // this.game.paused = false;
-            // this.game.time = 60;
+            this.game.step();
+            this.game.draw(this.ctx);
+            requestAnimationFrame(this.render.bind(this));
+        } else if (this.game.over && !(this.game.paused)) {
+            cancelAnimationFrame(this.requestId);
+        this.timeout = setTimeout(() => {
             const game = document.getElementById('game');
             game.style.visibility = "hidden";
             const canvasEl = document.getElementById("game-canvas");
@@ -81,9 +83,9 @@ class GameView {
             scoreEl.innerHTML = 0;
             bugBelly.innerHTML = 0;
             visitsEl.innerHTML = 0;
-            requestAnimationFrame(this.render.bind(this));
+            // requestAnimationFrame(this.render.bind(this));
         }, 2000)}; 
-    };
-}
+    }
+};
 
 export default GameView;

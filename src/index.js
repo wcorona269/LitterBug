@@ -1,7 +1,6 @@
 import moduleTransformations from "@babel/preset-env/lib/module-transformations";
+import Game from "./scripts/game";
 import GameView from "./scripts/game_view"
-
-
 
 window.addEventListener('DOMContentLoaded', () => {
     const game = document.getElementById('game');
@@ -10,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadModal.showModal();
 })
 
-document.addEventListener("submit", () => {
+document.addEventListener("submit", (e) => {
     const game = document.getElementById('game');
     game.style.visibility = 'visible';
     const nameEl = document.querySelector('#nameEl');
@@ -23,10 +22,16 @@ document.addEventListener("submit", () => {
     canvasEl.width = 1000;
     canvasEl.height = 750;
 
-    const gameView = new GameView(ctx);
-    gameView.start();
-});
+    window.gameView = new GameView(ctx);
 
+    if (e.target.className === 'restart-form') {
+        delete window.gameView;
+        window.gameView = new GameView(ctx);
+        window.gameView.restart();
+    } else {
+        window.gameView.start();
+    }
+});
 
 
 
