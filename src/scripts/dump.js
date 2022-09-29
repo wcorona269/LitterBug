@@ -1,7 +1,7 @@
 import MovingObject from "./moving_object";
 
 const bin = new Image();
-bin.src = "../../images/garbage.png";
+bin.src = "./images/garbage.png";
 
 const RADIUS = 30;
 const COLOR = 'purple'
