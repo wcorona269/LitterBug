@@ -2,13 +2,13 @@ import MovingObject from "./moving_object";
 import Util from "./util"
 
 const beetleup = new Image();
-beetleup.src = "../../images//beetle/bup.png";
+beetleup.src = "./images//beetle/bup.png";
 const bd = new Image();
-bd.src = "../../images//beetle/bd.png";
+bd.src = "./images//beetle/bd.png";
 const bl = new Image();
-bl.src = "../../images//beetle/bl.png";
+bl.src = "./images//beetle/bl.png";
 const br = new Image();
-br.src = "../../images//beetle/br.png";
+br.src = "./images//beetle/br.png";
 
 
 const RADIUS = 16;

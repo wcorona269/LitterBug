@@ -1,7 +1,7 @@
 import MovingObject from "./moving_object";
 
 const beetleup = new Image();
-beetleup.src = "../../images//beetle/bup.png";
+beetleup.src = "./images//beetle/bup.png";
 
 const RADIUS = 20;
 const COLOR = "black";

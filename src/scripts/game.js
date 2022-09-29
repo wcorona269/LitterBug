@@ -4,7 +4,7 @@ import Litter from "./litter";
 import Dump from "./dump";
 
 const background = new Image();
-background.src = "../../images/grasstest_1.png";
+background.src = "./images/grasstest_1.png";
 
 const LITTERCOUNT = 15;
 const DECELERATOR = 0.9;

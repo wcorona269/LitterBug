@@ -2,31 +2,31 @@ import MovingObject from "./moving_object";
 
 
 const water = new Image();
-water.src = "../../images/litter/water.png";
+water.src = "./images/litter/water.png";
 
 const jug = new Image();
-jug.src = "../../images/litter/jug.png";
+jug.src = "./images/litter/jug.png";
 
 const box = new Image();
-box.src = "../../images/litter/box.png";
+box.src = "./images/litter/box.png";
 
 const news = new Image();
-news.src = "../../images/litter/news.png";
+news.src = "./images/litter/news.png";
 
 const coke = new Image();
-coke.src = "../../images/litter/coke.png";
+coke.src = "./images/litter/coke.png";
 
 const beer = new Image();
-beer.src = "../../images/litter/beer.png";
+beer.src = "./images/litter/beer.png";
 
 const can = new Image();
-can.src = "../../images/litter/can.png";
+can.src = "./images/litter/can.png";
 
 const stycup = new Image();
-stycup.src = "../../images/litter/styrocup.png";
+stycup.src = "./images/litter/styrocup.png";
 
 const pizza = new Image();
-pizza.src = "../../images/litter/pizza.png";
+pizza.src = "./images/litter/pizza.png";
 
 
 const RADIUS = 13;
