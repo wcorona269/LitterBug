@@ -31,4 +31,5 @@ document.addEventListener("submit", (e) => {
     } else {
         window.gameView.start();
     }
+    
 });
