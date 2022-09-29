@@ -10,7 +10,6 @@ bl.src = "./images/beetle/bl.png";
 const br = new Image();
 br.src = "./images/beetle/br.png";
 
-
 const RADIUS = 16;
 const COLOR = 'black';
 // const SPEEDS = [20, 15, 10, 5];

@@ -37,6 +37,7 @@ class Game {
         let counter = seconds;
         let timerEl = document.querySelector('#timerEl');
 
+    //  clearInterval
         setInterval(() => {
           if (counter > -1 && !(this.paused) && !(this.over)) {
           timerEl.innerHTML = counter;
@@ -106,7 +107,7 @@ class Game {
             }
     
             for (let i = 0; i < this.lives; i++) {
-                livesCount.appendChild(document.createElement('img')).src = "../../images//beetle/br.png"
+                livesCount.appendChild(document.createElement('img')).src = "./images/beetle/br.png"
             }
         } else {
             this.over = true;

@@ -15,7 +15,7 @@ class GameView {
 
     restart() {
         // this.game = new Game();
-        clearTimeout(this.timeout);
+        clearInterval(this.timeout);
         this.start();
     }
 

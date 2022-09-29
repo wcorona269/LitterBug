@@ -26,12 +26,9 @@ document.addEventListener("submit", (e) => {
 
     if (e.target.className === 'restart-form') {
         delete window.gameView;
-        window.gameView = new GameView(ctx);
+        window.gameView.game = new Game(ctx);
         window.gameView.restart();
     } else {
         window.gameView.start();
     }
 });
-
-
-
