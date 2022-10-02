@@ -1,7 +1,9 @@
 import MovingObject from "./moving_object";
 
-const beetleup = new Image();
-beetleup.src = "./images/beetle/bup.png";
+const left = new Image();
+left.src = "./images/enemy/left.PNG";
+const right = new Image();
+right.src = "./images/enemy/right.PNG";
 
 const RADIUS = 20;
 const COLOR = "black";
@@ -14,7 +16,8 @@ class Enemy extends MovingObject {
 		this.frameCount = 0;
 		this.speed = [2, 3, 4];
 		this.speedIdx = 0;
-		this.beetleup = beetleup;
+		this.left = left;
+		this.right = right;
 	}
 
 	findBug(bug) {
@@ -27,7 +30,12 @@ class Enemy extends MovingObject {
 	}
 
 	draw(ctx) {
-		ctx.drawImage(this.beetleup, this.pos[0] - 10, this.pos[1] - 10, 60, 60);
+		if(this.vel[0] >= 0){
+			ctx.drawImage(this.right, this.pos[0] - 10, this.pos[1] - 10, 60,60);	
+		}
+		else if(this.vel[0] < 0){
+				ctx.drawImage(this.left, this.pos[0] - 10, this.pos[1] - 10, 60, 60);
+		}
 	}
 }
 

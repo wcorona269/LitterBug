@@ -1,7 +1,9 @@
 import MovingObject from "./moving_object";
 
-const bin = new Image();
-bin.src = "./images/garbage.png";
+const left = new Image();
+left.src = "./images/dump/left.png";
+const right = new Image();
+right.src = "./images/dump/right.png";
 
 const RADIUS = 30;
 const COLOR = 'purple'
@@ -12,10 +14,12 @@ class Dump extends MovingObject{
     }
 
     draw (ctx) {
-        ctx.drawImage(bin,this.pos[0] - 30, this.pos[1] - 50, 50, 80);
+        if (this.pos[0] === 40) {
+            ctx.drawImage(left,this.pos[0] - 30, this.pos[1] - 40, 80, 80);
+        } else {
+            ctx.drawImage(right,this.pos[0] - 30, this.pos[1] - 40, 80, 80);
+        }
     }
-    // context.drawImage(img,x,y,width,height)
-    // function respawns on collision
 }
 
 export default Dump;
