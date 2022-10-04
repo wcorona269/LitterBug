@@ -2,34 +2,45 @@
 
 ## Description
 
-***LitterBug*** is a **2D arcade-style game** where you are a trash-collecting **bug**, picking up up **litter** which appears randomly on the map. A Bug can carry **up to 5 pieces** of litter at a time and exchange the litter for **cash** at the **Dump** (placed in a corner of the map & respawning each time you visit).
-Some litter will reward more money than others (i.e. a soda can is $1 but a pizza box is $5).  Let's see how much cash you can make before time runs out... Good luck!
+**LitterBug** is a 2D retro arcade-style game where you play as a trash-collecting bug, picking up up litter which appears randomly on the map. Some litter will reward more money than others (value chart below). Let's see how much cash you can make before time runs out... Good luck!Carry up to 5 pieces of litter at a time and exchange it for cash at the dump (placed in a corner of the map & respawning each time you visit). Oh, and watch out for the snake!
 
-## Live
-[Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
+Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
 
 ## Languages and Technologies
 - Vanilla JavaScript
 - HTML5/CSS3
 - Canvas
 
-## Game Anatomy
+## Assets Used
+- [Recycle Items Set by Clint Bellanger](https://opengameart.org/content/recycle-items-set)
+- [Insect Items by Admurin](https://admurin.itch.io/admurins-insects)
+- ["Press Start 2P" Typeface by Google Fonts ](https://fonts.google.com/specimen/Press+Start+2P)
+- All other image assets created by me
 
+## Gameplay
+**Welcome screen**
+<!-- ![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+
+**Respawn**
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+
+**Game Over**
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif) -->
 
 
 ## Functionality & MVPs
+In Litterbug, users will be able to:
 
-***In Litterbug, users will be able to:***
-
+- Read instructions from a 'welcome' window
 - Input player name
-- Read instructions from a pop-up window
-- Use keyboard arrows to crawl around the map
-- Collect litter & exchange it for cash at the Dump
-    - Different litter types have different values
-<!-- - The more rewarding a piece of litter is, the more it slows the bug down. -->
+- Display player name, time remaining, cash, litter count, and # of deposits made
+- Use keyboard (W,A,S,D) to move
+- Pause game (spacebar)
+- Collect litter & exchange for cash at the Dump
+- Restart the game upon time or lives running out
 
 ## Litter value chart
-value | items | icon |
+**value** | **items** | **icon** |
 ------------- | ------------- | ------------- |
 $1  | water |![water](images/litter/water.png)
 $1  | can |![can](images/litter/can.png) 
@@ -40,51 +51,46 @@ $3  | newspaper |![newspaper](images/litter/news.png)
 $4  | box |![box](images/litter/box.png) 
 $4  | jug |![jug](images/litter/jug.png) 
 $5  | pizza |![pizza](images/litter/pizza.png) 
-### In addition, this project will include:
 
-- Windows displaying player name, countdown clock, cash count, current litter, and # of items deposited
-- Access to more valuable litter (which will in turn slow the user down)
-- Various color themes/settings to choose from (urban, suburban, rural)
+## Code Snippets
+### Collision Logic
+```javascript
+    checkCollisions(obj) {
+        const allObjects = this.allObjects();
+        allObjects.forEach(obj => {
+            if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
+                this.belly.push(obj);
+                this.remove(obj);
+            } 
+            else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
+                this.dumpVisits += 1;
+                visitsEl.innerHTML = this.dumpVisits;
+                this.dumpLitter();
+                this.addNewLitter();
+            }
+            else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
+                this.lives--;
+                this.showRemainingLives();
+            }
+        });
+    }
+```
+### Enemy tracking logic
+```javascript
+	findBug(bug) {
+		let pos = bug.pos;
+		let x = pos[0] - this.pos[0];
+		let y = pos[1] - this.pos[1];
 
-## Wireframes
-![Let's play ***LitterBug***!](Homepage.png)
-
-## Technologies, Libraries, APIs
-
-***LitterBug*** requires a Canvas API to allow game functionality in the browser. It may potentially require a backend to save high scores.
-
-## Implementation Timeline
-
-**Friday Afternoon & Weekend:** Setup basic file structure & initial setup. Create classes for Bug, Litter & Dump. Render bug & litter.
-
-**Monday:** Setup collision detection to allow bug to pick up litter & deposit in dump. Create pop-up window with game instructions. Get game rendered on screen with a moveable player & objects.
-
-**Tuesday:** Create windows for countdown clock, cash total, current litter and deposits counter.
-
-**Wednesday** Save scores to track high score. Allow for game restart.
-
-**Thursday Morning** Visually improve game & add window for color theme options.
+		this.vel[0] = this.speed[this.speedIdx] * (x / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+		this.vel[1] = this.speed[this.speedIdx] * (y / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+	}
+```
 
 ## Bonus Features
 - Adding sound effects for collecting & dumping trash
-    - Different sounds for each trash item picked up
-    - "cha-ching" sound for dump visit
 - different icons for the bug
 - different game modes
     - fixed timer mode where you aim to get as much cash in a fixed time
     - 'survival' mode clock adds 5 seconds every time you visit the dump
 - different color themes
-
-
-
-### task list
-
-- [x] setup basic project folder and skeleton
-- [ ] render player dot on screen
-- [ ] render randomly generated litter
-- [ ] collision registers to remove litter from screen & add to current litter
-- [ ] collision with dump adds cash & respawns dump
-- [ ] render countdown clock
-- [ ] render cash counter
-- [ ] render deposit counter
-- [ ] render deposit counter

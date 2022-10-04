@@ -82,8 +82,7 @@ class GameView {
             scoreEl.innerHTML = 0;
             bugBelly.innerHTML = 0;
             visitsEl.innerHTML = 0;
-            // requestAnimationFrame(this.render.bind(this));
-        }, 2000)}; 
+        }, 2000)};
     }
 };
 

@@ -29,6 +29,7 @@ class Game {
         this.startCountdown(60);
         this.time = 60;
         this.paused = false;
+        this.timer;
         // this.restart = this.restart.bind(this);
     }
 
@@ -38,7 +39,7 @@ class Game {
         let timerEl = document.querySelector('#timerEl');
 
     //  clearInterval
-        setInterval(() => {
+        this.timer = setInterval(() => {
           if (counter > -1 && !(this.paused) && !(this.over)) {
           timerEl.innerHTML = counter;
           this.time = counter;
@@ -117,6 +118,8 @@ class Game {
     step() {
         if (!(this.time) || !(this.lives)) {
             this.over = true;
+            clearInterval(this.timer);
+            return;
         }
         
         this.checkCollisions();
