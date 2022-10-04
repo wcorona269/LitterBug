@@ -2,7 +2,7 @@
 
 ## Description
 
-**LitterBug** is a 2D retro arcade-style game where you play as a trash-collecting bug, picking up up litter which appears randomly on the map. Some litter will reward more money than others (value chart below). Let's see how much cash you can make before time runs out... Good luck!Carry up to 5 pieces of litter at a time and exchange it for cash at the dump (placed in a corner of the map & respawning each time you visit). Oh, and watch out for the snake!
+**LitterBug** is a 2D retro arcade-style game where you play as a trash-collecting bug, picking up up litter which appears randomly on the map. Carry up to 5 pieces of litter at a time and exchange it for cash at the dump (placed in a corner of the map & respawning each time you visit). Let's see how much cash you can make before time runs out... Good luck!. Oh, and watch out for the snake!
 
 Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
 
