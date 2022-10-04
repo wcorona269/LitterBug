@@ -1,9 +1,9 @@
 import MovingObject from "./moving_object";
 
 const left = new Image();
-left.src = "./images/enemy/left.png";
+left.src = "./images/enemy/enemy_left.png"
 const right = new Image();
-right.src = "./images/enemy/right.png";
+right.src = "./images/enemy/enemy_right.png";
 
 const RADIUS = 20;
 const COLOR = "black";
