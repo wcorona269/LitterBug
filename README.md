@@ -18,13 +18,17 @@ Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.
 - All other image assets created by me
 
 ## Gameplay
-**Welcome screen**
+
+### Welcome screen
+
 ![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/welcome.gif)
 
-**Respawn**
+### Respawn
+
 ![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/respawn.gif)
 
-**Game Over**
+### Game Over
+
 ![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/end.gif)
 
 ## Functionality & MVPs
