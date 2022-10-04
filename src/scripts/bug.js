@@ -12,7 +12,6 @@ br.src = "./images/beetle/br.png";
 
 const RADIUS = 16;
 const COLOR = 'black';
-// const SPEEDS = [20, 15, 10, 5];
 const MAXSPEED = 10;
 
 class Bug extends MovingObject {
@@ -37,11 +36,10 @@ class Bug extends MovingObject {
 
     draw(ctx){
         if(this.vel[0] >= 0){
-            ctx.drawImage(this.br, this.pos[0] - 10, this.pos[1] - 10, 60,60);
-            
+            ctx.drawImage(this.br, 13, 0 + 26 * this.currentFrameIdx, 26, 26, this.pos[0] - 13, this.pos[1] - 13, 26, 26);
         }
         else if(this.vel[0] < 0){
-            ctx.drawImage(this.bl, this.pos[0] - 10, this.pos[1] - 10, 60, 60);
+            ctx.drawImage(this.bl, 80, 0 + 26 * this.currentFrameIdx, 26, 26, this.pos[0] - 13, this.pos[1] - 13, 26, 26);
         }
     }
 };

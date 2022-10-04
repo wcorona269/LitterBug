@@ -15,6 +15,7 @@ class GameView {
 
     restart() {
         clearInterval(this.timeout);
+        // this.game = new this.game()
         this.start();
     }
 
@@ -61,7 +62,7 @@ class GameView {
             this.game.step();
             this.game.draw(this.ctx);
             requestAnimationFrame(this.render.bind(this));
-        } else if (this.game.over && !(this.game.paused)) {
+        } else if (this.game.over) {
             cancelAnimationFrame(this.requestId);
         this.timeout = setTimeout(() => {
             const game = document.getElementById('game');
@@ -73,15 +74,12 @@ class GameView {
             const scoreEl = document.querySelector('#scoreEl');
             const bugBelly = document.querySelector('#bugBelly');
             const visitsEl = document.querySelector('#visitsEl');
-            const highScoreEl = document.querySelector('#highScoreEl');
             const timerEl = document.querySelector('#timerEl');
-            if (scoreEl.innerHTML > highScoreEl.innerHTML) {
-                highScoreEl.innerHTML = scoreEl.innerHTML
-            }
             timerEl.innerHTML = 60;
             scoreEl.innerHTML = 0;
             bugBelly.innerHTML = 0;
             visitsEl.innerHTML = 0;
+            this.game = new Game();
         }, 2000)};
     }
 };
