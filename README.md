@@ -19,14 +19,13 @@ Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.
 
 ## Gameplay
 **Welcome screen**
-<!-- ![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/welcome.gif)
 
 **Respawn**
-![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/respawn.gif)
 
 **Game Over**
-![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif) -->
-
+![](https://github.com/wcorona269/LitterBug/blob/main/images/gifs/end.gif)
 
 ## Functionality & MVPs
 In Litterbug, users will be able to:
