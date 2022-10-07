@@ -22,20 +22,26 @@ class Enemy extends MovingObject {
 	}
 
 	findBug(bug) {
+		if (Array.isArray(this.pos) && Array.isArray(this.vel) && this.pos.length === 2 && this.vel.length === 2) {
+
 		let pos = bug.pos;
 		let x = pos[0] - this.pos[0];
 		let y = pos[1] - this.pos[1];
 
 		this.vel[0] = this.speed[this.speedIdx] * (x / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
 		this.vel[1] = this.speed[this.speedIdx] * (y / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+		}
 	}
 
 	draw(ctx) {
-		if(this.vel[0] >= 0){
-			ctx.drawImage(this.right, this.pos[0] - 10, this.pos[1] - 10, 40,40);	
-		}
-		else if(this.vel[0] < 0){
-				ctx.drawImage(this.left, this.pos[0] - 10, this.pos[1] - 10, 40, 40);
+		if (Array.isArray(this.pos) && Array.isArray(this.vel) && this.pos.length === 2 && this.vel.length === 2) {
+
+			if(this.vel[0] >= 0){
+				ctx.drawImage(this.right, this.pos[0] - 15, this.pos[1] - 15, 35,35);	
+			}
+			else if(this.vel[0] < 0){
+					ctx.drawImage(this.left, this.pos[0] - 15, this.pos[1] - 15, 35, 35);
+			}
 		}
 	}
 }

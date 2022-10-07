@@ -9,14 +9,7 @@ class GameView {
         this.ctx = ctx;
         this.bug = this.game.bug;
         this.time = this.game.time;
-        // this.restart = this.restart.bind(this);
         this.timeout;
-    }
-
-    restart() {
-        clearInterval(this.timeout);
-        // this.game = new this.game()
-        this.start();
     }
 
     start(){

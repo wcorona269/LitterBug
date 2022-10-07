@@ -20,16 +20,20 @@ class MovingObject {
     }
 
     move(){
-        let x = this.pos[0] + this.vel[0]
-        let y = this.pos[1] + this.vel[1];
-
-        this.pos = [x, y]
+        if (Array.isArray(this.pos) && Array.isArray(this.vel) && this.pos.length === 2 && this.vel.length === 2) {
+            let x = this.pos[0] + this.vel[0]
+            let y = this.pos[1] + this.vel[1];
+    
+            this.pos = [x, y];
+        }
     }
 
     dist(pos1, pos2) {
-        return Math.sqrt(
-          Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2)
-        );
+        if (Array.isArray(pos1) && Array.isArray(pos2) && pos1.length === 2 && pos2.length === 2) {
+            return Math.sqrt(
+            Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2)
+            )
+        }
     }
 
     isCollidedWith(otherObject) {

@@ -30,7 +30,6 @@ class Game {
         this.time = 60;
         this.paused = false;
         this.timer;
-        // this.restart = this.restart.bind(this);
     }
 
     startCountdown(seconds) {
@@ -38,7 +37,6 @@ class Game {
         let counter = seconds;
         let timerEl = document.querySelector('#timerEl');
 
-    //  clearInterval
         this.timer = setInterval(() => {
           if (counter > -1 && !(this.paused) && !(this.over)) {
           timerEl.innerHTML = counter;
@@ -145,7 +143,6 @@ class Game {
         }
 
         this.checkCollisions();
-        // this.addEnemy();
         this.updateBelly();
         this.handlePause();
         this.move();
@@ -205,26 +202,62 @@ class Game {
 
     checkCollisions() {
         const allObjects = this.allObjects();
-        allObjects.forEach(obj => {
-            if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
-                this.belly.push(obj);
-                this.remove(obj);
-            } 
-            else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
-                this.dumpVisits += 1;
-                visitsEl.innerHTML = this.dumpVisits;
-                this.dumpLitter();
-                this.addNewLitter();
+
+        for (let i = 0; i < allObjects.length; i += 1) {
+            for (let j = 0; j < allObjects.length; j += 1) {
+                if (i === j) continue;
+                const obj1 = allObjects[i];
+                const obj2 = allObjects[j];
+
+                if (obj1 instanceof Bug) {
+                    if (obj2 instanceof Litter && this.belly.length < 5 && obj1.isCollidedWith(obj2)) {
+                        this.belly.push(obj2);
+                        this.remove(obj2);
+                    } else if (obj2 instanceof Dump && obj1.isCollidedWith(obj2) && this.belly.length > 0) {
+                        // this.dumpVisits += 1;
+                        // visitsEl.innerHTML = this.dumpVisits;
+                        this.dumpLitter();
+                        this.addNewLitter();
+                    } else if (obj2 instanceof Enemy && obj1.isCollidedWith(obj2)) {
+                        this.lives--;
+                        this.showRemainingLives()
+                    }
+                }  
             }
-            else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
-                this.lives--;
-                this.showRemainingLives();
-            }
-        });
+        }
+        // allObjects.forEach(obj => {
+        //     if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
+        //         this.belly.push(obj);
+        //         this.remove(obj);
+        //     } else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
+        //         this.dumpVisits += 1;
+        //         visitsEl.innerHTML = this.dumpVisits;
+        //         this.dumpLitter();
+        //         this.addNewLitter();
+        //     } else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
+        //         this.lives--;
+        //         this.showRemainingLives();
+        //     }
+        // });
+    }
+
+    resetPositions(obj) {
+        if (obj.vel[0] < 0) {
+            obj.pos[0] -= obj.vel[0] - 1;
+        } else {
+            obj.pos[0] -= obj.vel[0] + 1;
+        }
+        if (obj.vel[1] < 1) {
+            obj.pos[1] -= obj.vel[1] - 1;
+        } else {
+            obj.pos[1] -= obj.vel[1] + 1;
+        }
     }
 
     dumpLitter() {
         this.addDump();
+        this.dumpVisits += 1;
+        visitsEl.innerHTML = this.dumpVisits;
 
         while (this.belly.length) {
             var lit = this.belly.shift();
