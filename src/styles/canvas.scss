@@ -122,7 +122,7 @@ kbd {
     line-height: 1.2;
     display: flex;
     justify-content: center;
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 
 #spacebar {

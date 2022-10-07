@@ -8,6 +8,7 @@
     padding-bottom: 1%;
     display: flex;
     gap: .5rem;
+    white-space: nowrap !important;
 }
 
  .stats > p {
@@ -28,6 +29,7 @@
     padding: 4px;
     border: 2px solid purple;
     border-radius: 10px;
+    white-space: nowrap !important;
 }
 
 p > span {

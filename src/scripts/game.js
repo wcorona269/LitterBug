@@ -10,7 +10,7 @@ const LITTERCOUNT = 15;
 const DECELERATOR = 0.93;
 const DIM_X = 1000;
 const DIM_Y = 750;
-const DUMPSPOTS = [[40,40],[40,710],[945,40],[945,710]]
+const DUMPSPOTS = [[40,40],[40,710],[945,40],[945,710]];
 
 class Game {
     constructor() {
