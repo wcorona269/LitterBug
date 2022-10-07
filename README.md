@@ -6,6 +6,7 @@
 
 Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
 
+
 ## Languages and Technologies
 - Vanilla JavaScript
 - HTML5/CSS3
