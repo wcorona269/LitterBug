@@ -245,6 +245,7 @@ class Game {
                             obj2.pos[1] += 2;
                             obj1.pos[1] -= 2;
                         }
+                        
                     }
                 }  
             }
