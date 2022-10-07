@@ -34,18 +34,22 @@ class GameView {
         if (this.time === 0) return;
         switch(event.key){
             case 'w':
+            case 'W':
                 if (this.bug.pos[1] > 75)
                 {this.bug.travel([0, -5])};
                 break;
             case 'a':
+            case 'A':
                 if (this.bug.pos[0] > 75)    
                 this.bug.travel([-5, 0]);
                 break;
             case 's':
+            case 'S':
                 if (this.bug.pos[1] < 650)    
                 this.bug.travel([0, 5]);
                 break;
             case 'd':
+            case 'D':
                 if (this.bug.pos[0] < 900)
                 this.bug.travel([5, 0]);
                 break;

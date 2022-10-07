@@ -13,6 +13,7 @@ Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.
 
 ## Assets Used
 - [Recycle Items Set by Clint Bellanger](https://opengameart.org/content/recycle-items-set)
+- [Grass background by Stereoscopic](https://opengameart.org/content/grass-1)
 - [Insect Items by Admurin](https://admurin.itch.io/admurins-insects)
 - ["Press Start 2P" Typeface by Google Fonts ](https://fonts.google.com/specimen/Press+Start+2P)
 - All other image assets created by me

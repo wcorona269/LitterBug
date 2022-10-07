@@ -5,7 +5,7 @@ left.src = "./images/dump/left.png";
 const right = new Image();
 right.src = "./images/dump/right.png";
 
-const RADIUS = 30;
+const RADIUS = 35;
 const COLOR = 'purple'
 
 class Dump extends MovingObject{

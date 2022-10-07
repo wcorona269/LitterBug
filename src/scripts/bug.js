@@ -2,13 +2,10 @@ import MovingObject from "./moving_object";
 import Util from "./util"
 
 const beetleup = new Image();
-beetleup.src = "./images/beetle/bup.png";
-const bd = new Image();
-bd.src = "./images/beetle/bd.png";
-const bl = new Image();
-bl.src = "./images/beetle/bl.png";
-const br = new Image();
-br.src = "./images/beetle/br.png";
+const beetleLeft = new Image();
+beetleLeft.src = "./images/beetle/bl.png";
+const beetleRight = new Image();
+beetleRight.src = "./images/beetle/br.png";
 
 const RADIUS = 16;
 const COLOR = 'black';
@@ -19,8 +16,8 @@ class Bug extends MovingObject {
         super([500,375],[0, 0],RADIUS, COLOR, game);
         this.currentFrameIdx = 3;
         this.frameCount = 0;
-        this.br = br;
-        this.bl = bl;
+        this.beetleRight = beetleRight;
+        this.beetleLeft = beetleLeft;
     }
 
     travel(velocity){
@@ -36,10 +33,10 @@ class Bug extends MovingObject {
 
     draw(ctx){
         if(this.vel[0] >= 0){
-            ctx.drawImage(this.br, 13, 0 + 26 * this.currentFrameIdx, 26, 26, this.pos[0] - 13, this.pos[1] - 13, 26, 26);
+			ctx.drawImage(this.beetleRight, this.pos[0] - 10, this.pos[1] - 10, 60, 60)	
         }
-        else if(this.vel[0] < 0){
-            ctx.drawImage(this.bl, 80, 0 + 26 * this.currentFrameIdx, 26, 26, this.pos[0] - 13, this.pos[1] - 13, 26, 26);
+        else {
+            ctx.drawImage(this.beetleLeft, this.pos[0] - 10, this.pos[1] - 10, 60, 60);	
         }
     }
 };

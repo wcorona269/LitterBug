@@ -4,10 +4,10 @@ import Litter from "./litter";
 import Dump from "./dump";
 
 const background = new Image();
-background.src = "./images/grasstest_1.png";
+background.src = "./images/grass.png";
 
 const LITTERCOUNT = 15;
-const DECELERATOR = 0.9;
+const DECELERATOR = 0.95;
 const DIM_X = 1000;
 const DIM_Y = 750;
 const DUMPSPOTS = [[40,40],[40,710],[945,40],[945,710]]
@@ -121,12 +121,13 @@ class Game {
             clearInterval(this.timer);
             return;
         }
-        
+
         this.checkCollisions();
         this.addEnemy();
         this.updateBelly();
         this.handlePause();
         this.move();
+        this.outOfBounds();
         this.updateEnemySpeed();
         this.findBug();
     }
@@ -156,38 +157,24 @@ class Game {
         }
     }
 
-    randCorner() {
-        return DUMPSPOTS[Math.floor(Math.random()*DUMPSPOTS.length)];
-    }
-
-    generateDump() {
-        return new Dump(this.randCorner(), this)
-    }
-
-
-    ensureNewPos() {
-        let newDump = this.generateDump();
-        let currDump = this.dumps[0];
-        let curr_x = currDump.pos[0];
-        let curr_y = currDump.pos[1];
-        let new_x = newDump.pos[0];
-        let new_y = newDump.pos[1];
-        while (curr_x === new_x && curr_y === new_y){
-            newDump = this.generateDump();
-            new_x = newDump.pos[0];
-            new_y = newDump.pos[1];
-        }
-
-        return newDump;
-    }
-
     addDump() {
         if (!this.dumps.length) {
-            var newDump = this.generateDump();
-            this.dumps.push(newDump);
-        }
-        else {
-            let newDump = this.ensureNewPos();
+            let random_pos = DUMPSPOTS[Math.floor(Math.random()*DUMPSPOTS.length)];
+            this.dumps.push(new Dump(random_pos, this))
+        } else {
+            let available_spots = DUMPSPOTS;
+            available_spots = available_spots.map(spot => spot.join(','));
+
+            const  current_dump_spot = this.dumps[0].pos.join(',');
+            const idx = available_spots.indexOf(current_dump_spot);
+
+            available_spots.splice(idx, 1);
+            available_spots = available_spots.map(spot => spot.split(','));
+
+            let random_pos = available_spots[Math.floor(Math.random()*available_spots.length)]
+            random_pos = [parseInt(random_pos[0]), parseInt(random_pos[1])];
+            let newDump = new Dump(random_pos, this);
+
             this.dumps = [];
             this.dumps.push(newDump);
         };
@@ -214,19 +201,45 @@ class Game {
     }
 
     dumpLitter() {
+        this.addDump();
+
         while (this.belly.length) {
-            var lit = this.belly[0];
+            var lit = this.belly.shift();
             this.score += lit.value;
-            scoreEl.innerHTML = this.score;
-            finalScoreEl.innerHTML = this.score;
-            this.belly.shift();
-            this.addDump();
         }
+        
+        scoreEl.innerHTML = this.score;
+        finalScoreEl.innerHTML = this.score;
     }
 
     remove (obj) {
         if (obj instanceof Litter) {
             this.litters.splice(this.litters.indexOf(obj), 1);
+        }
+    }
+
+    outOfBounds() {
+        const pos = this.bug.pos;
+        const vel = this.bug.vel;
+        const radius = this.bug.radius + 1;
+
+        const checkTop = pos[1] + vel[1] < radius;
+        const checkBottom = pos[1] + vel[1] > DIM_Y - radius;
+        const checkLeft = pos[0] + vel[0] < radius;
+        const checkRight = pos[0] + vel[0] > DIM_X - radius;
+
+        if (checkTop === true) {
+            this.bug.pos[1] -= this.bug.vel[1] - 1;
+            this.bug.vel[1] = 0;
+        } else if (checkBottom === true) {
+            this.bug.pos[1] -= this.bug.vel[1] + 1;
+            this.bug.vel[1] = 0;
+        } else if (checkLeft === true) {
+            this.bug.pos[0] -= this.bug.vel[0] - 1;
+            this.bug.vel[0] = 0;
+        } else if (checkRight === true) {
+            this.bug.pos[0] -= this.bug.vel[0] + 1;
+            this.bug.vel[0] = 0;
         }
     }
 

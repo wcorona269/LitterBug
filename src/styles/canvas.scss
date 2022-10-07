@@ -22,6 +22,9 @@ body {
 }
 
 canvas {
+    background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/grass_17.png");
+    // background-image: url("../images/grass.png");
+    background-repeat: repeat;
     border: 10px solid purple; 
     text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
     box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;  
@@ -125,7 +128,6 @@ kbd {
 #spacebar {
     width: 100px;
 }
-
 
 .hidden {
     display: none !important;
