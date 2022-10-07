@@ -4,7 +4,7 @@ const left = new Image();
 left.src = "./images/enemy/enemy_left.png"
 
 const right = new Image();
-right.src = "./images/enemy/enemy_left.png";
+right.src = "./images/enemy/enemy_right.png";
 
 const RADIUS = 15;
 const COLOR = "black";
@@ -39,7 +39,7 @@ class Enemy extends MovingObject {
 			if(this.vel[0] >= 0){
 				ctx.drawImage(this.right, this.pos[0] - 15, this.pos[1] - 15, 35,35);	
 			}
-			else if(this.vel[0] < 0){
+			else {
 					ctx.drawImage(this.left, this.pos[0] - 15, this.pos[1] - 15, 35, 35);
 			}
 		}
