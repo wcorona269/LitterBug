@@ -30,7 +30,7 @@ class Bug extends MovingObject {
             this.vel[1] += velocity[1];
         }
     }
-
+    
     draw(ctx){
         if(this.vel[0] >= 0){
 			ctx.drawImage(this.beetleRight, this.pos[0] - 16, this.pos[1] - 16, 40, 40)	

@@ -222,6 +222,30 @@ class Game {
                         this.lives--;
                         this.showRemainingLives()
                     }
+                } else if (obj1 instanceof Enemy) {
+                    if (obj2 instanceof Enemy && obj1.isCollidedWith(obj2)) {
+                        // keep enemies from morphing together
+                        const obj1_x = obj1.pos[0];
+                        const obj1_y = obj1.pos[1];
+                        const obj2_x = obj2.pos[0];
+                        const obj2_y = obj2.pos[1];
+
+                        if (obj1_x > obj2_x) {
+                            obj1.pos[0] += 2;
+                            obj2.pos[1] -= 2;
+                        } else {
+                            obj2.pos[0] += 2;
+                            obj1.pos[1] -= 2;
+                        }
+
+                        if (obj1_y > obj2_y) {
+                            obj1.pos[1] += 2;
+                            obj2.pos[1] -= 2;
+                        } else {
+                            obj2.pos[1] += 2;
+                            obj1.pos[1] -= 2;
+                        }
+                    }
                 }  
             }
         }
