@@ -33,10 +33,10 @@ class Bug extends MovingObject {
 
     draw(ctx){
         if(this.vel[0] >= 0){
-			ctx.drawImage(this.beetleRight, this.pos[0] - 10, this.pos[1] - 10, 60, 60)	
+			ctx.drawImage(this.beetleRight, this.pos[0] - 16, this.pos[1] - 16, 40, 40)	
         }
         else {
-            ctx.drawImage(this.beetleLeft, this.pos[0] - 10, this.pos[1] - 10, 60, 60);	
+            ctx.drawImage(this.beetleLeft, this.pos[0] - 16, this.pos[1] - 16, 40, 40);	
         }
     }
 };

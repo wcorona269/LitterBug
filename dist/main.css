@@ -1,4 +1,353 @@
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap);
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}dialog{background-color:#ffd778;border:10px solid purple;width:700px;height:fit-content;text-shadow:5px 5px 0px #eee,7px 7px 0px #707070;box-shadow:5px 5px 0px #eee,7px 7px 0px #707070;align-items:center;border-radius:20px}#popup-header{display:flex;justify-content:center;font-size:30px;text-decoration:underline}#game-description{font-size:18px;padding-top:40px;padding-bottom:10px;line-height:30px;text-align:center}.name-form>label,input{font-size:30px;margin-top:40px;padding-top:20px;padding-left:15px}.name-input{width:255px;height:20px;font-size:20px;font-family:"Press Start 2P";text-align:center;border:5px solid purple;box-shadow:5px 5px 0px #eee,7px 7px 0px #707070;border-radius:20px;background-color:#beedff;padding-bottom:20px}.start-button{border:5px solid purple;text-shadow:5px 5px 0px #eee,7px 7px 0px #707070;box-shadow:5px 5px 0px #eee,7px 7px 0px #707070;font-size:30px;padding:10px;font-family:"Press Start 2P";border-radius:20px;background-color:#beedff}form>div{display:flex;justify-content:space-around;text-align:center;margin-top:20px;padding:10px}#good-luck{text-align:center;font-size:20px}.endModal{background-color:#ffd778;width:fit-content;height:fit-content}#display-score{margin-top:10px;margin-bottom:0px;align-items:center;display:flex;justify-content:space-around;padding:15px;font-size:24px}#finalScoreEl{background-color:#beedff;padding:10px;border:10px solid purple;border-radius:20px}.restart-form>div{margin:5px}button:hover{background-color:#ff0;transform:translateY(-4px);box-shadow:0 5px #666}button:active{background-color:#e27c00;box-shadow:0 5px #666;transform:translateY(8px)}.stats{grid-area:stats;display:flex;justify-content:space-around;margin-bottom:1;padding-bottom:1%;display:flex;gap:.5rem}.stats>p{font-size:20px;align-self:flex-end;margin-bottom:10px;padding-right:20px;border:7px solid purple;background-color:#ffd778;text-shadow:2px 2px 0px #eee,5px 5px 0px #707070;box-shadow:2px 2px 0px #eee,5px 5px 0px #707070;padding:10px;border-radius:10px}#timerEl,#nameEl,#scoreEl,#bugBelly,#visitsEl{background-color:#beedff;padding:4px;border:2px solid purple;border-radius:10px}p>span{padding:1px;height:40px;width:auto}body{margin:0px;padding:50px}.game-container{display:flex;justify-content:center;grid-area:game}.game{height:100%;width:100%;display:grid;grid-template-columns:1fr 1100px 1fr;grid-template-rows:1fr fit-content 1fr;grid-template-areas:"name stats ." "controls game scoreboard" ". . ."}canvas{background-image:url("https://opengameart.org/sites/default/files/styles/medium/public/grass_17.png");background-repeat:repeat;border:10px solid purple;text-shadow:5px 5px 0px #eee,7px 7px 0px #707070;box-shadow:5px 5px 0px #eee,7px 7px 0px #707070;border-radius:20px}.game-info{line-height:2;height:fit-content;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;margin-top:50px;gap:20px}.game-info #lives,.game-info #high-score{width:200px}.game-info span{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.game-info div{background-color:#ffd778;width:100%;max-width:250px}.game-info h3{margin-bottom:10px;text-align:center}.game-info img{height:35px}.game-info>div{border:10px solid purple;box-shadow:5px 5px 0px #eee,7px 7px 0px #707070;text-shadow:5px 5px 0px #eee,7px 7px 0px #707070;font-size:20px;border-radius:20px;padding:10px}#controls{grid-area:controls}#scoreboard{grid-area:scoreboard}#scoreboard>div{display:flex;flex-direction:column;align-items:center}#scoreboard>div div{display:flex;background-color:#beedff;padding:15px;justify-content:center;width:75px;border:2px solid #000;border-radius:20px}kbd{background-color:#eee;text-shadow:none;border-radius:8px;border:1px solid #b4b4b4;box-shadow:2px 3px #000;color:#333;display:inline-block;font-size:14px;font-weight:900;padding:3px;width:30px;line-height:1.2;display:flex;justify-content:center;white-space:nowrap}#spacebar{width:100px}.hidden{display:none !important}.pause-menu{position:absolute;margin:auto;display:flex;justify-content:center;text-align:center;align-self:center;font-size:40px;text-shadow:5px 5px 0px #eee,7px 7px 0px #707070;color:purple}.pause-menu p{box-shadow:rgba(0,0,0,.2) 0px 60px 40px -7px}#game-header{text-align:center;font-size:20px;position:absolute;padding-top:5px;top:0;left:0%}body{font-family:"Press Start 2P";background-image:url("../images/background.jpeg");background-size:cover;display:flex;justify-content:center}
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
+  \*****************************************************************************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-/*# sourceMappingURL=main.css.map*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+dialog {
+  background-color: #ffd778;
+  border: 10px solid purple;
+  width: 700px;
+  height: fit-content;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  box-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#popup-header {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+#game-description {
+  font-size: 18px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.name-form > label, input {
+  font-size: 30px;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-left: 15px;
+}
+
+.name-input {
+  width: 255px;
+  height: 20px;
+  font-size: 20px;
+  font-family: "Press Start 2P";
+  text-align: center;
+  border: 5px solid purple;
+  box-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  border-radius: 20px;
+  background-color: rgb(190, 237, 255);
+  padding-bottom: 20px;
+}
+
+.start-button {
+  border: 5px solid purple;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  box-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  font-size: 30px;
+  padding: 10px;
+  font-family: "Press Start 2P";
+  border-radius: 20px;
+  background-color: rgb(190, 237, 255);
+}
+
+form > div {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#good-luck {
+  text-align: center;
+  font-size: 20px;
+}
+
+.endModal {
+  background-color: #ffd778;
+  width: fit-content;
+  height: fit-content;
+}
+
+#display-score {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  font-size: 24px;
+}
+
+#finalScoreEl {
+  background-color: rgb(190, 237, 255);
+  padding: 10px;
+  border: 10px solid purple;
+  border-radius: 20px;
+}
+
+.restart-form > div {
+  margin: 5px;
+}
+
+button:hover {
+  background-color: yellow;
+  transform: translateY(-4px);
+  box-shadow: 0 5px #666;
+}
+
+button:active {
+  background-color: rgb(226, 124, 0);
+  box-shadow: 0 5px #666;
+  transform: translateY(8px);
+}
+
+.stats {
+  grid-area: stats;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1;
+  padding-bottom: 1%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.stats > p {
+  font-size: 20px;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  padding-right: 20px;
+  border: 7px solid purple;
+  background-color: #ffd778;
+  text-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;
+  box-shadow: 2px 2px 0px #eee, 5px 5px 0px #707070;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#timerEl, #nameEl, #scoreEl, #bugBelly, #visitsEl {
+  background-color: rgb(190, 237, 255);
+  padding: 4px;
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+p > span {
+  padding: 1px;
+  height: 40px;
+  width: auto;
+}
+
+body {
+  margin: 0px;
+  padding: 50px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  grid-area: game;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1100px 1fr;
+  grid-template-rows: 1fr fit-content 1fr;
+  grid-template-areas: "name stats ." "controls game scoreboard" ". . .";
+}
+
+canvas {
+  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/grass_17.png");
+  background-repeat: repeat;
+  border: 10px solid purple;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  box-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  border-radius: 20px;
+}
+
+.game-info {
+  line-height: 2;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 20px;
+}
+.game-info #lives, .game-info #high-score {
+  width: 200px;
+}
+.game-info span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.game-info div {
+  background-color: #ffd778;
+  width: 100%;
+  max-width: 250px;
+}
+.game-info h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.game-info img {
+  height: 35px;
+}
+
+.game-info > div {
+  border: 10px solid purple;
+  box-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#controls {
+  grid-area: controls;
+}
+
+#scoreboard {
+  grid-area: scoreboard;
+}
+
+#scoreboard > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#scoreboard > div div {
+  display: flex;
+  background-color: rgb(190, 237, 255);
+  padding: 15px;
+  justify-content: center;
+  width: 75px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+kbd {
+  background-color: #eee;
+  text-shadow: none;
+  border-radius: 8px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 2px 3px black;
+  color: #333;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 3px;
+  width: 30px;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+#spacebar {
+  width: 100px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pause-menu {
+  position: absolute;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  font-size: 40px;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  color: purple;
+}
+.pause-menu p {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+
+#game-header {
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+  padding-top: 5px;
+  top: 0;
+  left: 0%;
+}
+
+body {
+  font-family: "Press Start 2P";
+  background-image: url("../images/background.jpeg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}

@@ -6,13 +6,13 @@ left.src = "./images/enemy/enemy_left.png"
 const right = new Image();
 right.src = "./images/enemy/enemy_left.png";
 
-const RADIUS = 20;
+const RADIUS = 15;
 const COLOR = "black";
 const MAXSPEED = 20;
 
 class Enemy extends MovingObject {
-	constructor(game) {
-		super([500,375],[1, 1],RADIUS, COLOR, game);
+	constructor(pos, game) {
+		super(pos,[1, 1],RADIUS, COLOR, game);
 		this.currentFrameIdx = 3;
 		this.frameCount = 0;
 		this.speed = [2, 3, 4];
@@ -32,10 +32,10 @@ class Enemy extends MovingObject {
 
 	draw(ctx) {
 		if(this.vel[0] >= 0){
-			ctx.drawImage(this.right, this.pos[0] - 10, this.pos[1] - 10, 60,60);	
+			ctx.drawImage(this.right, this.pos[0] - 10, this.pos[1] - 10, 40,40);	
 		}
 		else if(this.vel[0] < 0){
-				ctx.drawImage(this.left, this.pos[0] - 10, this.pos[1] - 10, 60, 60);
+				ctx.drawImage(this.left, this.pos[0] - 10, this.pos[1] - 10, 40, 40);
 		}
 	}
 }

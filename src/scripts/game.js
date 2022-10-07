@@ -7,7 +7,7 @@ const background = new Image();
 background.src = "./images/grass.png";
 
 const LITTERCOUNT = 15;
-const DECELERATOR = 0.95;
+const DECELERATOR = 0.93;
 const DIM_X = 1000;
 const DIM_Y = 750;
 const DUMPSPOTS = [[40,40],[40,710],[945,40],[945,710]]
@@ -58,24 +58,46 @@ class Game {
     
     findBug() {
         if (this.enemy.length) {
-            this.enemy[0].findBug(this.bug);
+            this.enemy.forEach(enemy => enemy.findBug(this.bug))
         }
     }
 
     addEnemy() {
-        if (this.dumpVisits > 0 && !(this.enemy.length)) {
-            this.enemy.push(new Enemy(this))
-        }
+        const rand_spots = [
+            [-50, 800],
+            [-50, 600],
+            [-50, 400],
+            [-50, 200],
+            [-50, 0],
+            [1150, 800],
+            [1150, 600],
+            [1150, 400],
+            [1150, 200],
+            [1150, 0],
+            [0, -50]
+            [250, -50],
+            [500, -50],
+            [750, -50],
+            [1000, -50],
+            [0, 800],
+            [250, 800],
+            [500, 800],
+            [750, 800],
+            [1000, 800]
+        ];
+
+        const rand_spot = rand_spots[Math.floor(Math.random()*rand_spots.length)];
+        this.enemy.push(new Enemy(rand_spot, this));
     }
 
     updateEnemySpeed() {
         if (this.enemy.length) {
             if (this.score >= 35) {
-                this.enemy[0].speedIdx = 1;
+                this.enemy.forEach(enemy => enemy.speedIdx = 1);
             }
     
             if (this.score > 70) {
-                this.enemy[0].speedIdx = 2;
+                this.enemy.forEach(enemy => enemy.speedIdx = 1);
             }
         }
     }
@@ -123,7 +145,7 @@ class Game {
         }
 
         this.checkCollisions();
-        this.addEnemy();
+        // this.addEnemy();
         this.updateBelly();
         this.handlePause();
         this.move();
@@ -177,10 +199,11 @@ class Game {
 
             this.dumps = [];
             this.dumps.push(newDump);
+            this.addEnemy();
         };
     }
 
-    checkCollisions(obj) {
+    checkCollisions() {
         const allObjects = this.allObjects();
         allObjects.forEach(obj => {
             if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
