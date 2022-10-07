@@ -2,7 +2,7 @@
 
 ## Description
 
-**LitterBug** is a 2D retro arcade-style game where you play as a trash-collecting bug, picking up up litter which appears randomly on the map. Carry up to 5 pieces of litter at a time and exchange it for cash at the dump (placed in a corner of the map & respawning each time you visit). Let's see how much cash you can make before time runs out... Good luck! Oh, and watch out for the snake!
+**LitterBug** is a 2D retro arcade-style game where you play as a trash-collecting bug, picking up up litter which appears randomly on the map. Carry up to 5 pieces of litter at a time and exchange it for cash at the dump (placed in a corner of the map & respawning each time you visit). Let's see how much cash you can make before time runs out... Good luck! Oh, and watch out for the snakes!
 
 Try it out for yourself here: [Let's Play Litterbug!](https://wcorona269.github.io/LitterBug/)
 
@@ -59,25 +59,56 @@ $5  | pizza |![pizza](images/litter/pizza.png)
 ## Code Snippets
 ### Collision Logic
 ```javascript
-    checkCollisions(obj) {
-        const allObjects = this.allObjects();
-        allObjects.forEach(obj => {
-            if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
-                this.belly.push(obj);
-                this.remove(obj);
-            } 
-            else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
-                this.dumpVisits += 1;
-                visitsEl.innerHTML = this.dumpVisits;
-                this.dumpLitter();
-                this.addNewLitter();
+        checkCollisions() {
+            const allObjects = this.allObjects();
+
+            for (let i = 0; i < allObjects.length; i += 1) {
+                for (let j = 0; j < allObjects.length; j += 1) {
+                    if (i === j) continue;
+                    const obj1 = allObjects[i];
+                    const obj2 = allObjects[j];
+
+                    if (obj1 instanceof Bug) {
+                        if (obj2 instanceof Litter && this.belly.length < 5 && obj1.isCollidedWith(obj2)) {
+                            this.belly.push(obj2);
+                            this.remove(obj2);
+                        } else if (obj2 instanceof Dump && obj1.isCollidedWith(obj2) && this.belly.length > 0) {
+                            // this.dumpVisits += 1;
+                            // visitsEl.innerHTML = this.dumpVisits;
+                            this.dumpLitter();
+                            this.addNewLitter();
+                        } else if (obj2 instanceof Enemy && obj1.isCollidedWith(obj2)) {
+                            this.lives--;
+                            this.showRemainingLives()
+                        }
+                    } else if (obj1 instanceof Enemy) {
+                        if (obj2 instanceof Enemy && obj1.isCollidedWith(obj2)) {
+                            // keep enemies from morphing together
+                            const obj1_x = obj1.pos[0];
+                            const obj1_y = obj1.pos[1];
+                            const obj2_x = obj2.pos[0];
+                            const obj2_y = obj2.pos[1];
+
+                            if (obj1_x > obj2_x) {
+                                obj1.pos[0] += 2;
+                                obj2.pos[1] -= 2;
+                            } else {
+                                obj2.pos[0] += 2;
+                                obj1.pos[1] -= 2;
+                            }
+
+                            if (obj1_y > obj2_y) {
+                                obj1.pos[1] += 2;
+                                obj2.pos[1] -= 2;
+                            } else {
+                                obj2.pos[1] += 2;
+                                obj1.pos[1] -= 2;
+                            }           
+                        }
+                    }  
+                }
             }
-            else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
-                this.lives--;
-                this.showRemainingLives();
-            }
-        });
-    }
+        }
 ```
 ### Enemy tracking logic
 ```javascript

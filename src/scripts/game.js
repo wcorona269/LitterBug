@@ -250,21 +250,21 @@ class Game {
                 }  
             }
         }
-        // allObjects.forEach(obj => {
-        //     if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
-        //         this.belly.push(obj);
-        //         this.remove(obj);
-        //     } else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
-        //         this.dumpVisits += 1;
-        //         visitsEl.innerHTML = this.dumpVisits;
-        //         this.dumpLitter();
-        //         this.addNewLitter();
-        //     } else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
-        //         this.lives--;
-        //         this.showRemainingLives();
-        //     }
-        // });
     }
+    // allObjects.forEach(obj => {
+    //     if (obj instanceof Litter && this.belly.length < 5 && this.bug.isCollidedWith(obj)) {
+    //         this.belly.push(obj);
+    //         this.remove(obj);
+    //     } else if (obj instanceof Dump && this.bug.isCollidedWith(obj) && this.belly.length > 0) {
+    //         this.dumpVisits += 1;
+    //         visitsEl.innerHTML = this.dumpVisits;
+    //         this.dumpLitter();
+    //         this.addNewLitter();
+    //     } else if (obj instanceof Enemy && this.bug.isCollidedWith(obj)) {
+    //         this.lives--;
+    //         this.showRemainingLives();
+    //     }
+    // });
 
     resetPositions(obj) {
         if (obj.vel[0] < 0) {
