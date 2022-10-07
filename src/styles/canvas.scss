@@ -22,7 +22,6 @@ body {
 }
 
 canvas {
-    background-image: url("https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png");
     border: 10px solid purple; 
     text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;;
     box-shadow:  5px 5px 0px #eee, 7px 7px 0px #707070;  
@@ -126,6 +125,7 @@ kbd {
 #spacebar {
     width: 100px;
 }
+
 
 .hidden {
     display: none !important;
